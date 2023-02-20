@@ -1,0 +1,10 @@
+:root {
+    --white: #fff;
+    --black: #000;
+    --dark-blue: #0D1A2D;
+    --blue: #273B55;
+    --light-blue: #15273F;
+    
+    --max-page-width: 1200px;
+    --main-duration: .3s;
+}
