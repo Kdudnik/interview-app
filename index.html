@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interview App</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/x-icon" href="./favicon.png">
 </head>
 
@@ -51,24 +51,44 @@
     </header>
     <main>
         <div class="container">
+            <div class="greeting">
+                <h1>Hi! this is interview app Grygoriy. Click on one of the topics.</h1>
+            </div>
             <div class="cards">
-                <div class="card">
-                    <button class="choose-btn">Choose</button>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card__side card__side--front"></div>
+                        <div class="card__side card__side--back">
+                            Question 1
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <button class="choose-btn">Choose</button>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card__side card__side--front"></div>
+                        <div class="card__side card__side--back">
+                            Question 2
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <button class="choose-btn">Choose</button>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card__side card__side--front"></div>
+                        <div class="card__side card__side--back">
+                            Question 3
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
     <footer>
-        <a href="https://github.com/Kdudnik" target="_blank">Made by Dudnik</a>
+        <div class="container">
+            <a href="https://github.com/Kdudnik" target="_blank">Made by Kiril Dudnik</a>
+        </div>
     </footer>
 
-    <script src="./script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

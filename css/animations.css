@@ -1,0 +1,17 @@
+@keyframes card-show {
+    from {
+      transform: translateY(-100vh);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+@keyframes card-hide {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
