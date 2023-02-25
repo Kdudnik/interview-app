@@ -38,10 +38,6 @@ ul {
     height: 100%;
 }
 
-.is-hidden {
-    display: none;
-}
-
 header,
 footer {
     background-color: var(--theme-light);
@@ -80,24 +76,6 @@ nav {
     height: auto;
 }
 
-.navbar.topics {
-    display: flex;
-    gap: 15px;
-}
-
-.navbar__topic  a{
-    transition: var(--main-duration);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    opacity: .5;
-}
-
-.navbar__topic svg {
-    transition: var(--main-duration);
-    fill: var(--main-color);
-}
-
 [data-topic="html"]:hover a,
 [data-topic="html"]:hover svg,
 [data-topic="html"]:focus-within,
@@ -131,7 +109,6 @@ nav {
     fill: var(--js);
 }
 
-
 .navbar-btn {
     border: 3px solid var(--theme-main);
     background-color: transparent;
@@ -146,6 +123,97 @@ nav {
 .navbar-btn:hover {
     background-color: var(--theme-active);
     border: 3px solid var(--theme-active);
+}
+
+.burger__menu-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.burger__menu-wrapper input {
+    width: 20px;
+    height: 25px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+.burger__menu-wrapper span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin-bottom: 5px;
+    position: relative;
+    background: var(--main-color);
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 0px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        opacity 0.55s ease;
+}
+
+.burger__menu-wrapper span:first-child {
+    transform-origin: 0% 0%;
+}
+
+.burger__menu-wrapper span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+.burger__menu-wrapper input:checked~span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -.5px);
+}
+
+.burger__menu-wrapper input:checked~span:nth-last-child(2) {
+    transform: rotate(-45.5deg) translate(0, -1px);
+}
+
+.burger__menu-wrapper input:checked~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.navbar-topics {
+    position: absolute;
+    height: calc(100vh - 175px);
+    padding: 30px;
+    background: var(--theme-light);
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.navbar-topics li {
+    padding: 10px 0;
+    font-size: 22px;
+}
+
+.navbar__topic a {
+    transition: var(--main-duration);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    opacity: .5;
+}
+
+.navbar__topic svg {
+    transition: var(--main-duration);
+    fill: var(--main-color);
+}
+
+.burger__menu-wrapper input:checked~.navbar-topics {
+    transform: translate(-35px, 0);
+    width: 150px;
+}
+
+.burger__menu-wrapper input:not(:checked)~.navbar-topics {
+    transform: translate(calc(-100% - 35px), 0);
 }
 
 main {
@@ -170,6 +238,8 @@ main {
     gap: 60px;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    height: 100%;
+    /* This one for mobile to make all 3 cards visible when scrolling */
 }
 
 .card-wrapper {
@@ -260,31 +330,45 @@ footer {
     padding: 27.5px;
 }
 
+.desktop {
+    display: none;
+}
+
 footer a:hover {
     text-decoration: underline;
 }
 
 @media screen and (min-width: 991px) {
+    .navbar-topics {
+        gap: 30px;
+    }
+
+    .burger__menu-wrapper span,
+    .burger__menu-wrapper input {
+        display: none;
+    }
+
+    .burger__menu-wrapper input:not(:checked)~.navbar-topics {
+        position: relative;
+        height: auto;
+        padding: 0;
+        transform: translate(0, 0);
+        flex-direction: row;
+    }
+
+    .navbar-topics ul {
+        display: flex;
+        order: 2;
+        gap: 30px;
+    }
+
     header {
         font-size: 22px;
     }
 
-    .navbar.topics {
-        gap: 30px;
-    }
-
     .cards {
         gap: 40px;
+        height: auto;
+        /* rewriting 100% - we don't need it when direction is row */
     }
-
-    /* .cards {
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: space-between;
-    } */
-
-    /* .card-wrapper {
-        flex-basis: auto;
-        flex-grow: 1;
-    } */
 }
