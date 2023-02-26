@@ -22,7 +22,7 @@
                     <div class="navbar-topics">
                         <ul>
                             <li class="navbar__topic" data-topic="html">
-                                <a href="#">
+                                <!-- <a href="#">
                                     <svg width="32px" height="32px" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <rect width="24" height="24" fill="none" />
@@ -30,10 +30,10 @@
                                             d="M12,17.56l4.07-1.13.55-6.1H9.38l-.18-2h7.6l.2-2H7l.56,6h6.89l-.23,2.58L12,15.5l-2.22-.6-.14-1.66h-2l.29,3.19L12,17.56M4.07,3H19.93L18.5,19.2,12,21,5.5,19.2Z" />
                                     </svg>
                                     HTML
-                                </a>
+                                </a> -->
                             </li>
                             <li class="navbar__topic" data-topic="css">
-                                <a href="#">
+                                <!-- <a href="#">
                                     <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1"
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <path
@@ -41,17 +41,17 @@
                                         </path>
                                     </svg>
                                     CSS
-                                </a>
+                                </a> -->
                             </li>
                             <li class="navbar__topic" data-topic="js">
-                                <a href="#">
+                                <!-- <a href="#">
                                     <svg width="32px" height="32px" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="-4 -4 58 58" width="50px" height="50px">
                                         <path
                                             d="M45.274,2.325C45.084,2.118,44.817,2,44.536,2H5.464C5.183,2,4.916,2.118,4.726,2.325S4.443,2.81,4.468,3.089l3.52,39.427 c0.037,0.412,0.324,0.759,0.722,0.873l16.01,4.573C24.809,47.987,24.902,48,24.994,48s0.185-0.013,0.274-0.038l16.024-4.573 c0.398-0.114,0.685-0.461,0.722-0.873l3.518-39.427C45.557,2.81,45.463,2.532,45.274,2.325z M12,29.004l7,1.942V11h4v26l-11-3.051 V29.004z M38.054,22L37,34.25L27,37v-4.601l6.75-1.855l0.25-3.75L27,28V11h12l-0.345,4H31v8L38.054,22z" />
                                     </svg>
                                     JS
-                                </a>
+                                </a> -->
                             </li>
                         </ul>
                     </div>
@@ -65,6 +65,14 @@
     </header>
     <main>
         <div class="container">
+            <div class="upload">
+                <input type="file" id="csvUpload" accept=".csv">
+                <div>
+                    <span id="errorMessage" style="color:red; font-weight: 500"></span>
+                </div>
+                <div id="result">
+                </div>
+            </div>
             <div class="greeting">
                 <h1>Hi! this is interview app Grygoriy. Click on one of the topics.</h1>
             </div>
@@ -103,7 +111,8 @@
         </div>
     </footer>
 
-    <script src="./js/script.js"></script>
+    <script src="./node_modules/papaparse/papaparse.js"></script>
+    <script src="./js/script.js" type="module"></script>
 </body>
 
 </html>
