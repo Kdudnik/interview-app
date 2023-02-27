@@ -1,7 +1,10 @@
-import { readFile } from "./csvUpload.js"
+import initDropzone from "./csvUpload.js"
+
+initDropzone();
 
 const storageKey = 'theme-mode' // just a name of the field
 
+// Color scheme
 window.onload = () => {
   // set on load so screen readers can see latest value on the button
   reflectPreference()
@@ -100,7 +103,3 @@ pageSwitcher.forEach(switcher => {
     })
   })
 })
-
-const fileInput = document.getElementById("csvUpload");
-
-fileInput.addEventListener("change", readFile);

@@ -223,10 +223,24 @@ main {
     align-items: center;
 }
 
-.greeting {
+.csv-upload {
+    height: 80%;
+    min-height: auto;
     display: flex;
-    text-align: center;
-    font-size: 36px;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--main-color);
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: var(--main-duration);
+    opacity: .7;
+}
+
+.csv-upload:hover {
+    background-color: var(--theme-dz);
+    opacity: 1;
 }
 
 .cards {
