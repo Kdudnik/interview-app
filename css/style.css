@@ -239,8 +239,28 @@ main {
 }
 
 .csv-upload:hover {
-    background-color: var(--theme-dz);
+    background-color: var(--dz-bg);
     opacity: 1;
+}
+
+.csv-upload--error {
+    opacity: .7;
+    border: 2px dashed var(--dz-error);
+    color: var(--dz-error);
+    animation: dz-jiggling 1s;
+    background-color: rgba(237, 67, 55, 0.1);
+}
+
+.csv-upload--allowed {
+    opacity: .7;
+    border: 2px dashed var(--dz-allowed);
+    color: var(--dz-allowed);
+    animation: dz-jiggling 1s;
+    background-color: rgba(83, 166, 83, 0.1);
+}
+
+.csv-upload span {
+    pointer-events: none;
 }
 
 .cards {
