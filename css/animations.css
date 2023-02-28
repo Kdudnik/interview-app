@@ -16,33 +16,21 @@
     }
 }
 
-@keyframes dz-error {
+@keyframes dz-jiggling {
     0% {
-      color: #ff0000;
-      background-color: #ff0000;
-      border: #ff0000;
-      transform: translateX(20px);
+      transform: translateX(10px);
     }
 
     25% {
-      color: #ff0000;
-      background-color: #ff0000;
-      border: #ff0000;
-      transform: translateX(-20px);
+      transform: translateX(-10px);
     }
 
     50% {
-      color: #ff0000;
-      background-color: #ff0000;
-      border: #ff0000;
-      transform: translateX(20px);
+      transform: translateX(10px);
     }
 
     75% {
-      color: #ff0000;
-      background-color: #ff0000;
-      border: #ff0000;
-      transform: translateX(-20px);
+      transform: translateX(-10px);
     }
 
     100% {

@@ -5,31 +5,38 @@ function initDropzone() {
   const dzError = dropArea.querySelector('#error')
   const dzSuccess = dropArea.querySelector('#success')
 
-  dropArea.addEventListener('dragstart', (event) => {
+  dropArea.addEventListener('dragenter', (event) => {
     event.stopPropagation();
     event.preventDefault();
-    console.log('dragstart', event)
     // Style the drag-and-drop as a "copy file" operation.
     if (event.dataTransfer.items.length && event.dataTransfer.items[0].type !== 'text/csv') {
       dzError.style.display = "inline-block"
-      dropArea.style.animation = "dz-error 3s"
+      dropArea.classList.add('csv-upload--error')
       dzSuccess.style.display = "none"
-    }
-    // event.dataTransfer.dropEffect = 'move';
+    } else dropArea.classList.add('csv-upload--allowed')
   });
-
+  
   dropArea.addEventListener('dragleave', (event) => {
-    console.log('dragleave')
-    dropArea.style.animation = "none"
+    event.stopPropagation();
+    event.preventDefault();
+    dropArea.classList.remove('csv-upload--allowed')
+    dropArea.classList.remove('csv-upload--error')
     dzError.style.display = "none"
     dzSuccess.style.display = "inline-block"
-  })
+  });
+
+  dropArea.addEventListener("dragover", (event) => {
+    // prevent default to allow drop
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'move';
+  });
 
   dropArea.addEventListener('drop', (event) => {
     event.stopPropagation();
     event.preventDefault();
     const fileList = event.dataTransfer.files;
     readCSV(fileList[0])
+    dropArea.style.display = "none"
   });
 
   dropArea.addEventListener('click', dropZoneClick)
@@ -48,7 +55,7 @@ function dropZoneClick() {
 
 function readCSV(file) {
   if (file.type && file.type !== 'text/csv') {
-    console.log('File is not a csv.', file.type, file);
+    console.error('File is not a csv.', file.type, file);
     return;
   }
 

@@ -6,12 +6,15 @@
     --js: #FCB041;
     --theme-active: #75C9C9;
     color-scheme: light dark;
-
+    
     --main-color: #3c3c3c;
     --theme-dark: #EFF2F7;
     --theme-main: #ADADAD;
     --theme-light: #FFFFFF;
-    --theme-dz: rgba(33, 33, 33, 0.1);
+
+    --dz-bg: rgba(33, 33, 33, 0.1);
+    --dz-error: #ed4337;
+    --dz-allowed: #53a653;
 }
 
 [data-theme="dark"] {
@@ -19,7 +22,7 @@
     --theme-dark: #0D1A2D;
     --theme-main: #273B55;
     --theme-light: #15273F;
-    --theme-dz: rgba(183, 183, 183, 0.1);
+    --dz-bg: rgba(183, 183, 183, 0.1);
 }
 
 .scheme-switcher img:nth-child(2) {
