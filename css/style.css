@@ -247,7 +247,7 @@ main {
     opacity: .7;
     border: 2px dashed var(--dz-error);
     color: var(--dz-error);
-    animation: dz-jiggling 1s;
+    animation: dz-jiggling .4s;
     background-color: rgba(237, 67, 55, 0.1);
 }
 
@@ -255,7 +255,6 @@ main {
     opacity: .7;
     border: 2px dashed var(--dz-allowed);
     color: var(--dz-allowed);
-    animation: dz-jiggling 1s;
     background-color: rgba(83, 166, 83, 0.1);
 }
 
