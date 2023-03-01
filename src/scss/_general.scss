@@ -1,0 +1,38 @@
+body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--theme-dark);
+    color: var(--theme-main);
+    margin: 0;
+    padding: 0;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .container {
+        max-width: $max-page-width;
+        margin: 0 auto;
+        padding: 0 16px;
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+}

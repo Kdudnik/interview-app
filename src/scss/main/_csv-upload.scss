@@ -1,0 +1,39 @@
+.csv-upload {
+    height: 80%;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--main-color);
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: $main-duration;
+    opacity: .7;
+
+    :hover {
+        background-color: var(--dz-bg);
+        opacity: 1;
+    }
+    
+    .csv-upload--error {
+        opacity: .7;
+        border: 2px dashed $dz-error;
+        color: $dz-error;
+        animation: dz-jiggling .4s;
+        background-color: rgba(237, 67, 55, 0.1);
+    }
+    
+    .csv-upload--allowed {
+        opacity: .7;
+        border: 2px dashed $dz-allowed;
+        color: $dz-allowed;
+        background-color: rgba(83, 166, 83, 0.1);
+    }
+    
+    .csv-upload span {
+        pointer-events: none;
+    }
+}
+

@@ -1,5 +1,17 @@
-html, body {
-  & a {
-    background-color: #ff0000;
-  }
-}
+@import 'variables.scss';
+
+@import 'fonts.scss';
+
+@import 'general.scss';
+
+// Header
+@import './header/header.scss';
+@import './header/header-burger';
+
+// Main
+@import './main/cards';
+@import './main/csv-upload';
+
+@import 'animations.scss';
+
+@import 'footer.scss';

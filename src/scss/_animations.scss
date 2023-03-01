@@ -1,0 +1,39 @@
+@keyframes card-show {
+    from {
+      transform: translateY(-100vh);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+@keyframes card-hide {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes dz-jiggling {
+    0% {
+      transform: translateX(10px);
+    }
+
+    25% {
+      transform: translateX(-10px);
+    }
+
+    50% {
+      transform: translateX(10px);
+    }
+
+    75% {
+      transform: translateX(-10px);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+}

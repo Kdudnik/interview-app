@@ -1,0 +1,146 @@
+header {
+    background-color: var(--theme-light);
+    box-shadow: 0 0 30px 10px rgb(0 0 0 / 25%);
+    font-size: 18px;
+
+    @media screen and (min-width: 991px) {
+        font-size: 22px;
+    }
+
+    nav {
+        padding: 17.5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1em;
+        color: var(--theme-main);
+
+        .scheme-switcher {
+            width: 32px;
+            height: 32px;
+            transition: transform $main-duration;
+            background-color: transparent;
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .scheme-switcher:hover {
+            transform: scale(1.2);
+        }
+
+        .scheme-switcher img {
+            width: 100%;
+            height: auto;
+        }
+
+        .scheme-switcher img:nth-child(2) {
+            display: block;
+        }
+
+        .scheme-switcher img:nth-child(1) {
+            display: none;
+        }
+
+        [data-topic="html"]:hover a,
+        [data-topic="html"]:hover svg,
+        [data-topic="html"]:focus-within,
+        [data-topic="html"]:focus-within svg,
+        [data-topic="html"]:focus-within a {
+            outline: 0;
+            opacity: 1;
+            color: $html;
+            fill: $html;
+        }
+
+        [data-topic="css"]:hover a,
+        [data-topic="css"]:hover svg,
+        [data-topic="css"]:focus-within,
+        [data-topic="css"]:focus-within svg,
+        [data-topic="css"]:focus-within a {
+            outline: 0;
+            opacity: 1;
+            color: $css;
+            fill: $css;
+        }
+
+        [data-topic="js"]:hover a,
+        [data-topic="js"]:hover svg,
+        [data-topic="js"]:focus-within,
+        [data-topic="js"]:focus-within svg,
+        [data-topic="js"]:focus-within a {
+            outline: 0;
+            opacity: 1;
+            color: $js;
+            fill: $js;
+        }
+
+        .navbar-btn {
+            border: 3px solid var(--theme-main);
+            background-color: transparent;
+            color: var(--main-color);
+            border-radius: 5px;
+            font-size: .9em;
+            padding: 10px 50px;
+            cursor: pointer;
+            transition: $main-duration;
+        }
+
+        .navbar-btn:hover {
+            background-color: $theme-active;
+            border: 3px solid $theme-active;
+        }
+
+        .navbar-topics {
+            position: absolute;
+            height: calc(100vh - 175px);
+            padding: 30px;
+            background: var(--theme-light);
+            transform-origin: 0% 0%;
+            transform: translate(-100%, 0);
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            @media screen and (min-width: 991px) {
+                gap: 30px;
+
+                ul {
+                    display: flex;
+                    order: 2;
+                    gap: 30px;
+                }
+            }
+        }
+
+        .navbar-topics li {
+            font-size: 22px;
+        }
+
+        .navbar__topic a {
+            transition: $main-duration;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            opacity: .5;
+        }
+
+        .navbar__topic svg {
+            transition: $main-duration;
+            fill: var(--main-color);
+        }
+
+        .desktop {
+            display: none;
+        }
+    }
+}
+
+[data-theme="dark"] .scheme-switcher img:nth-child(2) {
+    display: none;
+}
+
+[data-theme="dark"] .scheme-switcher img:nth-child(1) {
+    display: block;
+}

@@ -1,0 +1,15 @@
+footer {
+    text-align: center;
+    padding: 27.5px;
+    background-color: var(--theme-light);
+
+    p {
+        color: var(--main-color);
+        opacity: .7;
+        cursor: default;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+}
