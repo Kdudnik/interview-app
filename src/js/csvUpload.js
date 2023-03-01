@@ -1,3 +1,4 @@
+import * as Papa from "papaparse"
 import { generateTopics } from "./generateCSV.js"
 
 function initDropzone() {
@@ -15,7 +16,7 @@ function initDropzone() {
       dzSuccess.style.display = "none"
     } else dropArea.classList.add('csv-upload--allowed')
   });
-  
+
   dropArea.addEventListener('dragleave', (event) => {
     event.stopPropagation();
     event.preventDefault();
