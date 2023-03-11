@@ -2,11 +2,10 @@
   "name": "interview-app",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
-  "type": "module",
+  "main": "main.js",
   "scripts": {
     "dev": "vite",
-    "build": "node ./config/optimize-images.cjs && vite build",
+    "build": "node ./config/optimize-images.mjs && vite build",
     "preview": "vite preview"
   },
   "repository": {
@@ -23,7 +22,10 @@
     "papaparse": "^5.3.2"
   },
   "devDependencies": {
+    "chalk": "^5.2.0",
     "filesize": "^10.0.6",
+    "fs-extra": "^11.1.0",
+    "nodemon": "^2.0.21",
     "sass": "^1.58.3",
     "sharp": "^0.31.3",
     "vite": "^4.1.4"
