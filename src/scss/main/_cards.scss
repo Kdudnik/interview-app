@@ -1,23 +1,15 @@
-main {
-    overflow: auto;
+.cards {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
     height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
 
-    .cards {
-        display: none;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 60px;
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
-        height: 100%;
-        
-        @media screen and (min-width: 991px) {
-            gap: 40px;
-            height: auto;
-        }
+    @media screen and (min-width: 991px) {
+        gap: 40px;
+        height: auto;
     }
 
     .card-wrapper {
@@ -94,12 +86,12 @@ main {
         pointer-events: none;
     }
 
-    .choose-btn {
-        color: var(--main-color);
-        border: 0;
-        font-size: 64px;
-        font-weight: 700;
-        background: none;
-        cursor: pointer;
-    }
+    // .choose-btn {
+    //     color: var(--main-color);
+    //     border: 0;
+    //     font-size: 64px;
+    //     font-weight: 700;
+    //     background: none;
+    //     cursor: pointer;
+    // }
 }

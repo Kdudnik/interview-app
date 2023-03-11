@@ -12,12 +12,13 @@
     transition: $main-duration;
     opacity: .7;
 
-    :hover {
+    &:hover {
         background-color: var(--dz-bg);
         opacity: 1;
     }
     
-    .csv-upload--error {
+
+    &.csv-upload--error {
         opacity: .7;
         border: 2px dashed $dz-error;
         color: $dz-error;
@@ -25,14 +26,14 @@
         background-color: rgba(237, 67, 55, 0.1);
     }
     
-    .csv-upload--allowed {
+    &.csv-upload--allowed {
         opacity: .7;
         border: 2px dashed $dz-allowed;
         color: $dz-allowed;
         background-color: rgba(83, 166, 83, 0.1);
     }
     
-    .csv-upload span {
+    span {
         pointer-events: none;
     }
 }

@@ -15,6 +15,7 @@
       + Create a way to get questions
          * Prepare list of questions
          * Give each question a price
+      + On mobile add an error for not a csv file
  ## - Show results
       + Save state
  ## - Rewrite styles to sass

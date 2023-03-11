@@ -8,31 +8,39 @@ body {
     color: var(--theme-main);
     margin: 0;
     padding: 0;
+}
 
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-    p {
-        margin: 0;
-    }
+p {
+    margin: 0;
+}
 
-    .container {
-        max-width: $max-page-width;
-        margin: 0 auto;
-        padding: 0 16px;
-        position: relative;
-        display: flex;
-        flex-grow: 1;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-    }
+.container {
+    max-width: $max-page-width;
+    margin: 0 auto;
+    padding: 0 16px;
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+main {
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
