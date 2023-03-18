@@ -22,7 +22,7 @@ The Interview App is a web application designed to streamline the interview proc
 ## 🛠️ Tech Stack
 
 - **HTML5**
-- **CSS**
+- **SCSS**
 - **JavaScript**
 - **Vite**
 
