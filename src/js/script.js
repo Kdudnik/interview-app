@@ -1,8 +1,8 @@
-import initDropzone from "./csvUpload.js"
+import "./csvUpload.js"
 import initThemeSwitcher from "./switchTheme.js"
 
 initThemeSwitcher()
-initDropzone()
+// initDropzone()
 
 // --------- CARDS -------
 const cards = document.querySelectorAll(".card")

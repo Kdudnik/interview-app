@@ -18,7 +18,7 @@ const initThemeSwitcher = () => {
       theme.value = isDark ? "dark" : "light"
       setPreference()
   })
-}
+} 
 
 const getColorPreference = () => {
     if (localStorage.getItem(storageKey)) {
