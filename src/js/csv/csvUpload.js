@@ -1,7 +1,6 @@
-import { generateTopics } from "./generateCSV.js";
-import { readCSV } from "./readCSV.js";
-import { generateTopics } from "./generateCSV.js"
-import { isCSV } from './utils/isCSV.js'
+import { generateTopics, handleClickOnTopic } from "../topics.js";
+import { csvRead } from "./csvRead.js";
+import { isCSV } from '../utils/isCSV.js'
 
 
 const dropArea = document.getElementById('csvUpload');
@@ -50,24 +49,23 @@ dropArea.addEventListener('drop', (event) => {
     return;
   }
 
-  const csvData = readCSV(file)
-  generateTopics(csvData.meta.fields)
+  const csvData = csvRead(file)
+  const topics = generateTopics(csvData.meta.fields)
+  handleClickOnTopic()
   dropArea.style.display = "none"
 });
 
 dropArea.addEventListener('click', dropZoneClick)
 
 function dropZoneClick() {
-  let csvData = null
   let input = document.createElement('input');
   input.type = 'file';
   input.accept = 'text/csv';
   input.addEventListener("change", (event) => {
     let fileList = Array.from(input.files);
-    csvData = readCSV(fileList[0])
-    generateTopics(csvData.meta.fields)
+    csvRead(fileList[0]).then((data) => {
+      generateTopics(data.meta.fields)
+    })
   });
   input.click();
 }
-
-export default initDropzone;

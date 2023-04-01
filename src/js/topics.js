@@ -1,6 +1,21 @@
+
 const topicsList = document.querySelector('.navbar-topics ul')
+const topics = topicsList.querySelectorAll(".navbar__topic")
+
+function handleClickOnTopic() {
+  console.log( 'CLICK!' );
+  
+}
+// topics.forEach((switcher) => {
+//     switcher.addEventListener("click", (event) => {
+//         // function()
+//     })
+// })
+
 
 function generateTopics(topics) {
+    let topicsArr = []
+
     if (!Array.isArray(topics)) return
 
     topics.forEach(field => {
@@ -12,6 +27,9 @@ function generateTopics(topics) {
             </li>
             `
         topicsList.insertAdjacentHTML("beforeend", topicEl)
+        topicsArr.push(field)
     });
+    return topicsArr
 }
-export { generateTopics }
+
+export { generateTopics, handleClickOnTopic }
