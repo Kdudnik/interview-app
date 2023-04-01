@@ -34,25 +34,24 @@ The Interview App is a web application designed to streamline the interview proc
 
 ## 🗺️ Roadmap
 
-| Task/Feature                          | Status        | Expected Completion Date |
-|---------------------------------------|---------------|--------------------------|
-| Create a page                         | 🚧 Not Started | TBD                      |
-| Add header with topics & finish button| ✅ Completed   | 2023-03-18               |
-| Add dropdown for topics               | ⏳ In Progress | 2023-03-19               |
-| Add icons for topics                  | ⏳ In Progress | 2023-03-19               |
-| Add cards with questions              | ✅ Completed   | 2023-03-18               |
-| Make the page responsive              | ✅ Completed   | 2023-03-18               |
-| Animate cards                         | 🚧 Not Started | TBD                      |
-| Add result form                       | 🚧 Not Started | TBD                      |
-| Add greet text                        | 🚧 Not Started | TBD                      |
-| Add back side of each card            | 🚧 Not Started | TBD                      |
-| Add a drop zone, instead of greet text| 🚧 Not Started | TBD                      |
-| Add language variations               | 🚧 Not Started | TBD                      |
-| Create a questions generator          | 🚧 Not Started | TBD                      |
-| Prepare list of questions             | 🚧 Not Started | TBD                      |
-| Give each question a price            | 🚧 Not Started | TBD                      |
-| Error for non-CSV on mobile           | 🚧 Not Started | TBD                      |
-| Show results                          | 🚧 Not Started | TBD                      |
-| Save state                            | 🚧 Not Started | TBD                      |
-| Rewrite styles to SASS                | 🚧 Not Started | TBD                      |
-| Online multiplayer                    | 🚧 Not Started | TBD                      |
+| Task/Feature                          | Status         | Expected(or done) Completion Date |
+|---------------------------------------|----------------|-----------------------------------|
+| Add header with topics & finish button| ✅ Completed   | 2023-03-18                        |
+| Add cards with questions              | ✅ Completed   | 2023-03-18                        |
+| Make the page responsive              | ✅ Completed   | 2023-03-18                        |
+| Animate cards                         | ✅ Completed   | 2023-03-18                        |
+| Rewrite styles to SASS                | ✅ Completed   | 2023-03-18                        |
+| Add a drop zone, instead of greet text| ✅ Completed   | 2023-03-18                        |
+| Prepare list of questions             | ✅ Completed   | 2023-03-18                        |
+| Refactor click event on cards         | ✅ Completed   | 2023-04-01                        |
+| Refactor pageSwitcher (dz -> cards)   | ⏳ In Progress | 2023-04-01                        |
+| Add icons for topics                  | 🚧 Not Started | TBD                               |
+| Add dropdown for topics               | 🚧 Not Started | TBD                               |
+| Add back side of each card            | 🚧 Not Started | TBD                               |
+| Add result form                       | 🚧 Not Started | TBD                               |
+| Show results                          | 🚧 Not Started | TBD                               |
+| Error for non-CSV on mobile           | 🚧 Not Started | TBD                               |
+| Give each question a price            | 🚧 Not Started | TBD                               |
+| Save state                            | 🚧 Not Started | TBD                               |
+| Add language variations               | 🚧 Not Started | TBD                               |
+| Online multiplayer                    | 🚧 Not Started | TBD                               |
