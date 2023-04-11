@@ -2,8 +2,8 @@ import { generateTopics, handleClickOnTopic } from "../topics.js";
 import { csvRead } from "./csvRead.js";
 import { isCSV } from '../utils/isCSV.js'
 
-
 const dropArea = document.getElementById('csvUpload');
+const greet = document.querySelector('.greet')
 const dzError = dropArea.querySelector('#error')
 const dzSuccess = dropArea.querySelector('#success')
 
@@ -49,10 +49,13 @@ dropArea.addEventListener('drop', (event) => {
     return;
   }
 
-  const csvData = csvRead(file)
-  const topics = generateTopics(csvData.meta.fields)
-  handleClickOnTopic()
-  dropArea.style.display = "none"
+  const csvDataPromise = csvRead(file)
+  csvDataPromise.then((result) => { 
+    generateTopics(result.meta.fields)
+    dropArea.style.display = "none"
+    greet.style.display = "flex"
+  })
+  // handleClickOnTopic()
 });
 
 dropArea.addEventListener('click', dropZoneClick)
@@ -65,6 +68,8 @@ function dropZoneClick() {
     let fileList = Array.from(input.files);
     csvRead(fileList[0]).then((data) => {
       generateTopics(data.meta.fields)
+      dropArea.style.display = "none"
+      greet.style.display = "flex"
     })
   });
   input.click();

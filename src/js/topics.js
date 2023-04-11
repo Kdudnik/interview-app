@@ -1,17 +1,18 @@
+import { switchSVG } from "./cards";
 
 const topicsList = document.querySelector('.navbar-topics ul')
-const topics = topicsList.querySelectorAll(".navbar__topic")
+const cards = document.querySelector(".cards")
+const greet = document.querySelector(".greet")
 
 function handleClickOnTopic() {
-  console.log( 'CLICK!' );
-  
+    console.log('CLICK!');
+
 }
 // topics.forEach((switcher) => {
 //     switcher.addEventListener("click", (event) => {
 //         // function()
 //     })
 // })
-
 
 function generateTopics(topics) {
     let topicsArr = []
@@ -20,8 +21,8 @@ function generateTopics(topics) {
 
     topics.forEach(field => {
         const topicEl = `
-            <li class="navbar__topic" data-topic="${field.toLowerCase()}">
-                <a href="#">
+            <li class="navbar__topic">
+                <a href="#" data-topic="${field.toLowerCase()}">
                     ${field}
                 </a>
             </li>
@@ -31,5 +32,13 @@ function generateTopics(topics) {
     });
     return topicsArr
 }
+
+topicsList.addEventListener('click', (event) => {
+    if (!event.target.dataset.topic) return
+    greet.style.display = "none"
+    cards.style.display = "flex"
+    cards.style.animationName = "card-show"
+    switchSVG(event)
+})
 
 export { generateTopics, handleClickOnTopic }

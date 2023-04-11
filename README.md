@@ -44,7 +44,7 @@ The Interview App is a web application designed to streamline the interview proc
 | Add a drop zone, instead of greet text| ✅ Completed   | 2023-03-18                        |
 | Prepare list of questions             | ✅ Completed   | 2023-03-18                        |
 | Refactor click event on cards         | ✅ Completed   | 2023-04-01                        |
-| Refactor pageSwitcher (dz -> cards)   | ⏳ In Progress | 2023-04-01                        |
+| Refactor pageSwitcher (dz -> cards)   | ✅ Completed   | 2023-04-12                        |
 | Add icons for topics                  | 🚧 Not Started | TBD                               |
 | Add dropdown for topics               | 🚧 Not Started | TBD                               |
 | Add back side of each card            | 🚧 Not Started | TBD                               |
