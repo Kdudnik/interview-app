@@ -42,37 +42,40 @@ header {
             display: none;
         }
 
-        [data-topic="html"]:hover a,
-        [data-topic="html"]:hover svg,
-        [data-topic="html"]:focus-within,
-        [data-topic="html"]:focus-within svg,
-        [data-topic="html"]:focus-within a {
+        [data-topic="html"]:hover {
             outline: 0;
             opacity: 1;
             color: $html;
-            fill: $html;
         }
 
-        [data-topic="css"]:hover a,
-        [data-topic="css"]:hover svg,
-        [data-topic="css"]:focus-within,
-        [data-topic="css"]:focus-within svg,
-        [data-topic="css"]:focus-within a {
+        [data-topic="css"]:hover {
             outline: 0;
             opacity: 1;
             color: $css;
-            fill: $css;
         }
 
-        [data-topic="js"]:hover a,
-        [data-topic="js"]:hover svg,
-        [data-topic="js"]:focus-within,
-        [data-topic="js"]:focus-within svg,
-        [data-topic="js"]:focus-within a {
+        [data-topic="javascript"]:hover {
             outline: 0;
             opacity: 1;
             color: $js;
-            fill: $js;
+        }
+
+        [data-topic="git"]:hover {
+            outline: 0;
+            opacity: 1;
+            color: $git;
+        }
+
+        [data-topic="vue"]:hover {
+            outline: 0;
+            opacity: 1;
+            color: $vue;
+        }
+
+        [data-topic="general"]:hover {
+            outline: 0;
+            opacity: 1;
+            color: $general;
         }
 
         .navbar-btn {
@@ -123,6 +126,7 @@ header {
             display: flex;
             align-items: center;
             gap: 5px;
+            color: var(--main-color);
         }
 
         .navbar__topic svg {

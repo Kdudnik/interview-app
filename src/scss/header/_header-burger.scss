@@ -72,4 +72,15 @@
             flex-direction: row;
         }
     }
+
+    .navbar-topics ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        @media screen and (min-width: 991px) {
+            gap: 30px;
+            flex-direction: row;
+        }
+    }
 }
