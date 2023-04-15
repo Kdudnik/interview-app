@@ -1,0 +1,93 @@
+%topic-icons {
+    [data-topic="html"] {
+        & path {
+            fill: $html;
+        }
+
+        &:hover,
+        :focus-within {
+            outline: 0;
+            opacity: 1;
+            color: $html;
+        }
+    }
+
+    [data-topic="css"] {
+        & path {
+            fill: $css;
+        }
+
+        &:hover,
+        :focus-within {
+            outline: 0;
+            opacity: 1;
+            color: $css;
+        }
+    }
+
+    [data-topic="javascript"] {
+        & path {
+            fill: $js;
+        }
+
+        &:hover,
+        :focus-within {
+            outline: 0;
+            opacity: 1;
+            color: $js;
+        }
+    }
+
+    [data-topic="git"] {
+        & path {
+            fill: $git;
+        }
+
+        &:hover,
+        :focus-within {
+            outline: 0;
+            opacity: 1;
+            color: $git;
+        }
+    }
+
+    [data-topic="vue"] {
+        & polygon:nth-child(1) {
+            fill: $vue;
+        }
+
+        & polygon:nth-child(2) {
+            fill: $vue--inner;
+        }
+
+        &:hover,
+        :focus-within {
+            outline: 0;
+            opacity: 1;
+            color: $vue;
+        }
+    }
+
+    [data-topic="general"] {
+        & path {
+            fill: $general;
+        }
+
+        &:hover,
+        :focus-within {
+            outline: 0;
+            opacity: 1;
+            color: $general;
+        }
+    }
+}
+
+header {
+    nav {
+        @extend %topic-icons;
+    }
+}
+
+.cards {
+    @extend %topic-icons;
+}

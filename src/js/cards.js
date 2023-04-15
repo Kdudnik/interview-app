@@ -13,6 +13,7 @@ cards.addEventListener("click", (event) => {
 
 function switchSVG(event) {
     cards.querySelectorAll(".card__side--front").forEach((cardFront) => {
+        cardFront.dataset.topic = event.target.dataset.topic
         cardFront.innerHTML = topicSVGs[event.target.dataset.topic]
     })
 }

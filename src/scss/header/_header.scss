@@ -42,42 +42,6 @@ header {
             display: none;
         }
 
-        [data-topic="html"]:hover {
-            outline: 0;
-            opacity: 1;
-            color: $html;
-        }
-
-        [data-topic="css"]:hover {
-            outline: 0;
-            opacity: 1;
-            color: $css;
-        }
-
-        [data-topic="javascript"]:hover {
-            outline: 0;
-            opacity: 1;
-            color: $js;
-        }
-
-        [data-topic="git"]:hover {
-            outline: 0;
-            opacity: 1;
-            color: $git;
-        }
-
-        [data-topic="vue"]:hover {
-            outline: 0;
-            opacity: 1;
-            color: $vue;
-        }
-
-        [data-topic="general"]:hover {
-            outline: 0;
-            opacity: 1;
-            color: $general;
-        }
-
         .navbar-btn {
             border: 3px solid var(--theme-main);
             background-color: transparent;
@@ -130,8 +94,13 @@ header {
         }
 
         .navbar__topic svg {
+            width: 24px;
+            height: 24px;
+            pointer-events: none;
+        }
+        
+        .navbar__topic path {
             transition: $main-duration;
-            fill: var(--main-color);
         }
 
         .desktop {
