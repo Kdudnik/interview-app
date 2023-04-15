@@ -1,4 +1,5 @@
 import { switchSVG } from "./cards";
+import { topicSVGs } from "./utils/topicsSVG";
 
 const topicsList = document.querySelector('.navbar-topics ul')
 const cards = document.querySelector(".cards")
@@ -20,9 +21,11 @@ function generateTopics(topics) {
     if (!Array.isArray(topics)) return
 
     topics.forEach(field => {
+        let lowerField = field.toLowerCase()
         const topicEl = `
             <li class="navbar__topic">
-                <a href="#" data-topic="${field.toLowerCase()}">
+                <a href="#" data-topic="${lowerField}">
+                    ${topicSVGs[lowerField]}
                     ${field}
                 </a>
             </li>

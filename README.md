@@ -45,8 +45,7 @@ The Interview App is a web application designed to streamline the interview proc
 | Prepare list of questions             | ✅ Completed   | 2023-03-18                        |
 | Refactor click event on cards         | ✅ Completed   | 2023-04-01                        |
 | Refactor pageSwitcher (dz -> cards)   | ✅ Completed   | 2023-04-12                        |
-| Add icons for topics                  | 🚧 Not Started | TBD                               |
-| Add dropdown for topics               | 🚧 Not Started | TBD                               |
+| Add icons for topics                  | ✅ Completed   | 2023-04-15                        |
 | Add back side of each card            | 🚧 Not Started | TBD                               |
 | Add result form                       | 🚧 Not Started | TBD                               |
 | Show results                          | 🚧 Not Started | TBD                               |
@@ -55,3 +54,4 @@ The Interview App is a web application designed to streamline the interview proc
 | Save state                            | 🚧 Not Started | TBD                               |
 | Add language variations               | 🚧 Not Started | TBD                               |
 | Online multiplayer                    | 🚧 Not Started | TBD                               |
+| Improve topics mobile (optional)      | 🚧 Not Started | TBD                               |
