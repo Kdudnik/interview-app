@@ -5,14 +5,15 @@
 @import 'general.scss';
 
 // Header
-@import './header/topic-icons';
 @import './header/header.scss';
 @import './header/header-burger';
 
 // Main
+@import './topic-icons';
 @import './main/cards';
 @import './main/greet';
 @import './main/csv-upload';
+@import './main/_result.scss';
 
 @import 'animations.scss';
 

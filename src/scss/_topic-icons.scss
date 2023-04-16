@@ -91,3 +91,29 @@ header {
 .cards {
     @extend %topic-icons;
 }
+
+.summary {
+    [data-topic="general"] {
+        background-color: rgba($color: $general, $alpha: .2);
+    }
+
+    [data-topic="html"] {
+        background-color: rgba($color: $html, $alpha: .2);
+    }
+
+    [data-topic="css"] {
+        background-color: rgba($color: $css, $alpha: .2);
+    }
+
+    [data-topic="javascript"] {
+        background-color: rgba($color: $js, $alpha: .2);
+    }
+
+    [data-topic="git"] {
+        background-color: rgba($color: $git, $alpha: .2);
+    }
+
+    [data-topic="vue"] {
+        background-color: rgba($color: $vue, $alpha: .2);
+    }
+}

@@ -1,6 +1,7 @@
 import { generateTopics, handleClickOnTopic } from "../topics.js";
 import { csvRead } from "./csvRead.js";
 import { isCSV } from '../utils/isCSV.js'
+import { generateSummary } from "../result.js";
 
 const dropArea = document.getElementById('csvUpload');
 const greet = document.querySelector('.greet')
@@ -52,6 +53,7 @@ dropArea.addEventListener('drop', (event) => {
   const csvDataPromise = csvRead(file)
   csvDataPromise.then((result) => { 
     generateTopics(result.meta.fields)
+    generateSummary(result.meta.fields)
     dropArea.style.display = "none"
     greet.style.display = "flex"
   })
@@ -68,8 +70,9 @@ function dropZoneClick() {
     let fileList = Array.from(input.files);
     csvRead(fileList[0]).then((data) => {
       generateTopics(data.meta.fields)
+      generateSummary(data.meta.fields)
       dropArea.style.display = "none"
-      greet.style.display = "flex"
+      // greet.style.display = "flex"
     })
   });
   input.click();

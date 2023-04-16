@@ -1,0 +1,95 @@
+.result {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+
+    h4 {
+        font-size: 32px;
+
+        @media screen and (min-width: 991px) {
+            font-size: 40px;
+        }
+    }
+
+    .card {
+        background-color: var(--theme-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+        border-radius: 15px;
+        box-shadow: 0 14px 50px -4px hsla(0, 0%, 0%, 0.15);
+        padding: 16px;
+        flex-basis: 370px;
+        min-height: 200px;
+        color: var(--main-color);
+
+        @media screen and (min-width: 991px) {
+            min-height: 250px;
+        }
+
+        .score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h5 {
+                font-size: 48px;
+
+                @media screen and (min-width: 991px) {
+                    font-size: 64px;
+                }
+            }
+
+            p {
+                @media screen and (min-width: 991px) {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        progress {
+            border-radius: 5px;
+            overflow: hidden;
+
+            &::-webkit-progress-bar {
+                background-color: var(--theme-dark);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+            }
+
+            &::-webkit-progress-value {
+                background: linear-gradient(90deg, $progress-dark, $progress);
+                transition: .5s;
+            }
+        }
+    }
+
+    .summary {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        padding: 24px 16px;
+        flex-basis: 370px;
+        min-height: 200px;
+        color: var(--main-color);
+        border-radius: 15px;
+        box-shadow: 0 14px 50px -4px hsla(0, 0%, 0%, 0.15);
+        background-color: var(--theme-light);
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            flex-basis: 75%;
+            padding: 15px;
+            border-radius: 5px;
+
+            .summary__score--static {
+                opacity: .5;
+            }
+        }
+    }
+}
