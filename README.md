@@ -46,10 +46,10 @@ The Interview App is a web application designed to streamline the interview proc
 | Refactor click event on cards         | ✅ Completed   | 2023-04-01                        |
 | Refactor pageSwitcher (dz -> cards)   | ✅ Completed   | 2023-04-12                        |
 | Add icons for topics                  | ✅ Completed   | 2023-04-15                        |
-| Add result form                       | ⏳ In Progress | TBD                               |
-| Change color on state of progress bar | 🚧 Not Started | TBD                               |
+| Add result form                       | ✅ Completed   | 2023-04-16                        |
+| Change color on state of progress bar | ✅ Completed   | 2023-04-16                        |
+| Show results                          | ⏳ In Progress | TBD                               |
 | Add back side of each card            | 🚧 Not Started | TBD                               |
-| Show results                          | 🚧 Not Started | TBD                               |
 | Error for non-CSV on mobile           | 🚧 Not Started | TBD                               |
 | Give each question a price            | 🚧 Not Started | TBD                               |
 | Save state                            | 🚧 Not Started | TBD                               |

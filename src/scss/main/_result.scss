@@ -60,8 +60,19 @@
             }
 
             &::-webkit-progress-value {
-                background: linear-gradient(90deg, $progress-dark, $progress);
                 transition: .5s;
+            }
+
+            &[data-score-result="bad"]::-webkit-progress-value {
+                background: linear-gradient(90deg, #C0392B, #E74C3C);
+            }
+
+            &[data-score-result="average"]::-webkit-progress-value {
+                background: linear-gradient(90deg, #F1C40F, #F7DC6F);
+            }
+
+            &[data-score-result="good"]::-webkit-progress-value {
+                background: linear-gradient(90deg, #166939, #27AE60);
             }
         }
     }
@@ -83,9 +94,19 @@
         div {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             flex-basis: 75%;
             padding: 15px;
             border-radius: 5px;
+
+            &:first-child {
+
+            }
+
+            svg {
+                width: 24px;
+                height: 24px;
+            }
 
             .summary__score--static {
                 opacity: .5;

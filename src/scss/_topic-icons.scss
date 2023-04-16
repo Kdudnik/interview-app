@@ -93,6 +93,8 @@ header {
 }
 
 .summary {
+    @extend %topic-icons;
+
     [data-topic="general"] {
         background-color: rgba($color: $general, $alpha: .2);
     }
