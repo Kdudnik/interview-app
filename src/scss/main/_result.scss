@@ -78,18 +78,22 @@
     }
 
     .summary {
-        display: flex;
+        display: none;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         gap: 16px;
-        padding: 24px 16px;
+        padding: 16px;
         flex-basis: 370px;
         min-height: 200px;
         color: var(--main-color);
         border-radius: 15px;
         box-shadow: 0 14px 50px -4px hsla(0, 0%, 0%, 0.15);
         background-color: var(--theme-light);
+
+        @media screen and (min-width: 991px) {
+            display: flex;
+        }
 
         div {
             display: flex;
@@ -98,9 +102,14 @@
             flex-basis: 75%;
             padding: 15px;
             border-radius: 5px;
+            cursor: pointer;
+            transition: .3s;
 
-            &:first-child {
-
+            & span {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                pointer-events: none;
             }
 
             svg {
@@ -111,6 +120,16 @@
             .summary__score--static {
                 opacity: .5;
             }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .switch__state {
+        @media screen and (min-width: 991px) {
+            display: none;
         }
     }
 }
