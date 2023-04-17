@@ -21,11 +21,10 @@ function generateTopics(topics) {
     if (!Array.isArray(topics)) return
 
     topics.forEach(field => {
-        let lowerField = field.toLowerCase()
         const topicEl = `
             <li class="navbar__topic">
-                <a href="#" data-topic="${lowerField}">
-                    ${topicSVGs[lowerField]}
+                <a href="#" data-topic="${field.toLowerCase()}">
+                    ${topicSVGs[field.toLowerCase()]}
                     ${field}
                 </a>
             </li>
