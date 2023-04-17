@@ -48,7 +48,9 @@ The Interview App is a web application designed to streamline the interview proc
 | Add icons for topics                  | ✅ Completed   | 2023-04-15                        |
 | Add result form                       | ✅ Completed   | 2023-04-16                        |
 | Change color on state of progress bar | ✅ Completed   | 2023-04-16                        |
-| Show results                          | ⏳ In Progress | TBD                               |
+| Style back side of cards              | ⏳ In Progress | TBD                               |
+| Add randomizer for qs generation      | 🚧 Not Started | TBD                               |
+| Show results                          | 🚧 Not Started | TBD                               |
 | Improve questions generation          | 🚧 Not Started | TBD                               |
 | Add back side of each card            | 🚧 Not Started | TBD                               |
 | Error for non-CSV on mobile           | 🚧 Not Started | TBD                               |

@@ -1,23 +1,13 @@
 import { switchSVG } from "./cards";
 import { topicSVGs } from "./utils/topicsSVG";
+import { generateCardContent } from "./questions";
+import { questions } from "./csv/csvUpload"
 
 const topicsList = document.querySelector('.navbar-topics ul')
 const cards = document.querySelector(".cards")
 const greet = document.querySelector(".greet")
 
-function handleClickOnTopic() {
-    console.log('CLICK!');
-
-}
-// topics.forEach((switcher) => {
-//     switcher.addEventListener("click", (event) => {
-//         // function()
-//     })
-// })
-
 function generateTopics(topics) {
-    let topicsArr = []
-
     if (!Array.isArray(topics)) return
 
     topics.forEach(field => {
@@ -30,9 +20,7 @@ function generateTopics(topics) {
             </li>
             `
         topicsList.insertAdjacentHTML("beforeend", topicEl)
-        topicsArr.push(field)
     });
-    return topicsArr
 }
 
 topicsList.addEventListener('click', (event) => {
@@ -41,6 +29,12 @@ topicsList.addEventListener('click', (event) => {
     cards.style.display = "flex"
     cards.style.animationName = "card-show"
     switchSVG(event)
+    const topicQsIndex = questions.findIndex(qsObj => {
+        if(Object.keys(qsObj)[0].toLowerCase() === event.target.dataset.topic) {
+            return qsObj
+        }
+    })
+    generateCardContent(questions[topicQsIndex], cards.querySelectorAll('.card__side--back'))
 })
 
-export { generateTopics, handleClickOnTopic }
+export { generateTopics }

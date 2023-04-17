@@ -28,8 +28,6 @@ const showScore = document.querySelector('.show__score')
 // })
 
 function generateSummary(topics) {
-    let summaryArr = []
-
     if(!Array.isArray(topics)) return
 
     topics.forEach(field => {
@@ -39,9 +37,7 @@ function generateSummary(topics) {
                 <span>50<span class="summary__score--static">/100</span></span>
             </div>`
         summary.insertAdjacentHTML("beforeend", summaryEl)
-        summaryArr.push(field)
     })
-    return summaryArr
 }
 
 showSummary.addEventListener('click', () => {

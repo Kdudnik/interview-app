@@ -1,7 +1,8 @@
-import { generateTopics, handleClickOnTopic } from "../topics.js";
+import { generateTopics } from "../topics.js";
 import { csvRead } from "./csvRead.js";
 import { isCSV } from '../utils/isCSV.js'
 import { generateSummary } from "../result.js";
+import { getQuestions } from "../questions.js";
 
 const dropArea = document.getElementById('csvUpload');
 const greet = document.querySelector('.greet')
@@ -10,6 +11,8 @@ const dzSuccess = dropArea.querySelector('#success')
 
 const csvErrorClass = 'csv-upload--error'
 const csvAllowedClass = 'csv-upload--allowed'
+
+let questions = []
 
 dropArea.addEventListener('dragenter', (event) => {
   event.stopPropagation();
@@ -53,11 +56,11 @@ dropArea.addEventListener('drop', (event) => {
   const csvDataPromise = csvRead(file)
   csvDataPromise.then((result) => { 
     generateTopics(result.meta.fields)
+    questions = getQuestions(result.data)
     generateSummary(result.meta.fields)
     dropArea.style.display = "none"
     greet.style.display = "flex"
   })
-  // handleClickOnTopic()
 });
 
 dropArea.addEventListener('click', dropZoneClick)
@@ -68,12 +71,15 @@ function dropZoneClick() {
   input.accept = 'text/csv';
   input.addEventListener("change", (event) => {
     let fileList = Array.from(input.files);
-    csvRead(fileList[0]).then((data) => {
-      generateTopics(data.meta.fields)
-      generateSummary(data.meta.fields)
+    csvRead(fileList[0]).then((result) => {
+      generateTopics(result.meta.fields)
+      questions = getQuestions(result.data)
+      generateSummary(result.meta.fields)
       dropArea.style.display = "none"
       // greet.style.display = "flex"
     })
   });
   input.click();
 }
+
+export { questions }
