@@ -102,8 +102,6 @@
             flex-basis: 75%;
             padding: 15px;
             border-radius: 5px;
-            cursor: pointer;
-            transition: .3s;
 
             & span {
                 display: flex;
@@ -120,14 +118,13 @@
             .summary__score--static {
                 opacity: .5;
             }
-
-            &:hover {
-                transform: scale(1.1);
-            }
         }
     }
 
     .switch__state {
+        flex-basis: 100%;
+        text-align: center;
+
         @media screen and (min-width: 991px) {
             display: none;
         }
