@@ -85,6 +85,10 @@ header {
             font-size: 22px;
         }
 
+        .topic--active {
+            pointer-events: none;
+        }
+
         .navbar__topic a {
             transition: $main-duration;
             display: flex;

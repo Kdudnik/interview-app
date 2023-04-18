@@ -50,12 +50,14 @@ The Interview App is a web application designed to streamline the interview proc
 | Change color on state of progress bar | ✅ Completed   | 2023-04-16                        |
 | Improve questions generation          | ✅ Completed   | 2023-04-17                        |
 | Style back side of cards              | ✅ Completed   | 2023-04-18                        |
-| Add randomizer for qs generation      | 🚧 Not Started | TBD                               |
-| Show results                          | 🚧 Not Started | TBD                               |
-| Add back side of each card            | 🚧 Not Started | TBD                               |
-| Error for non-CSV on mobile           | 🚧 Not Started | TBD                               |
-| Give each question a price            | 🚧 Not Started | TBD                               |
+| Improve card regeneration             | ✅ Completed   | 2023-04-18                        |
+| Add topic--active state               | ✅ Completed   | 2023-04-18                        |
+| Add events for correct/incorrect btns | 🚧 Not Started | TBD                               |
 | Save state                            | 🚧 Not Started | TBD                               |
+| Add randomizer for qs generation      | 🚧 Not Started | TBD                               |
+| Give each question a price            | 🚧 Not Started | TBD                               |
+| Show results                          | 🚧 Not Started | TBD                               |
 | Add language variations               | 🚧 Not Started | TBD                               |
-| Online multiplayer                    | 🚧 Not Started | TBD                               |
+| Error for non-CSV on mobile           | 🚧 Not Started | TBD                               |
 | Improve topics mobile (optional)      | 🚧 Not Started | TBD                               |
+| Online multiplayer                    | 🚧 Not Started | TBD                               |

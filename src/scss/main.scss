@@ -1,20 +1,20 @@
-@import 'variables.scss';
+@import '_variables.scss';
 
-@import 'fonts.scss';
+@import '_fonts.scss';
 
-@import 'general.scss';
+@import '_general.scss';
 
 // Header
-@import './header/header.scss';
-@import './header/header-burger';
+@import './header/_header.scss';
+@import './header/_header-burger';
 
 // Main
-@import './topic-icons';
-@import './main/cards';
-@import './main/greet';
-@import './main/csv-upload';
+@import './_topic-icons';
+@import './main/_cards';
+@import './main/_greet';
+@import './main/_csv-upload';
 @import './main/_result.scss';
 
-@import 'animations.scss';
+@import '_animations.scss';
 
-@import 'footer.scss';
+@import '_footer.scss';

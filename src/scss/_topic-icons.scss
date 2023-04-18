@@ -4,10 +4,13 @@
             fill: $html;
         }
 
-        &:hover,
-        :focus-within {
+        &:hover {
             outline: 0;
             opacity: 1;
+            color: $html;
+        }
+
+        &.topic--active {
             color: $html;
         }
     }
@@ -17,10 +20,13 @@
             fill: $css;
         }
 
-        &:hover,
-        :focus-within {
+        &:hover {
             outline: 0;
             opacity: 1;
+            color: $css;
+        }
+
+        &.topic--active {
             color: $css;
         }
     }
@@ -30,10 +36,13 @@
             fill: $js;
         }
 
-        &:hover,
-        :focus-within {
+        &:hover {
             outline: 0;
             opacity: 1;
+            color: $js;
+        }
+
+        &.topic--active {
             color: $js;
         }
     }
@@ -43,10 +52,13 @@
             fill: $git;
         }
 
-        &:hover,
-        :focus-within {
+        &:hover {
             outline: 0;
             opacity: 1;
+            color: $git;
+        }
+
+        &.topic--active {
             color: $git;
         }
     }
@@ -60,10 +72,13 @@
             fill: $vue--inner;
         }
 
-        &:hover,
-        :focus-within {
+        &:hover {
             outline: 0;
             opacity: 1;
+            color: $vue;
+        }
+
+        &.topic--active {
             color: $vue;
         }
     }
@@ -73,10 +88,13 @@
             fill: $general;
         }
 
-        &:hover,
-        :focus-within {
+        &:hover {
             outline: 0;
             opacity: 1;
+            color: $general;
+        }
+
+        &.topic--active {
             color: $general;
         }
     }

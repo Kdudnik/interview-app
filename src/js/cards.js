@@ -6,7 +6,7 @@ cards.addEventListener("click", (event) => {
     event.target.closest('.card').classList.add("card--active")
     event.currentTarget.querySelectorAll('.card').forEach((c) => {
         if (!c.classList.contains("card--active")) {
-            c.classList.add("card--disabled")
+            c.closest('.card-wrapper').style.display = "none"
         }
     })
 })

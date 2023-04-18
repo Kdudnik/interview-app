@@ -76,7 +76,7 @@ function dropZoneClick() {
       questions = getQuestions(result.data)
       generateSummary(result.meta.fields)
       dropArea.style.display = "none"
-      // greet.style.display = "flex"
+      greet.style.display = "flex"
     })
   });
   input.click();

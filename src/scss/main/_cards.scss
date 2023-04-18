@@ -3,8 +3,6 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 60px;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
     height: 100%;
 
     @media screen and (min-width: 991px) {
@@ -31,7 +29,7 @@
         align-items: center;
         transform-style: preserve-3d;
         transform: translateZ(-100px);
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         height: 100%;
         cursor: pointer;
         /* transition: var(--main-duration); */
