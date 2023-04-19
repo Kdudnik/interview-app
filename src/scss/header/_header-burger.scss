@@ -73,6 +73,11 @@
         }
     }
 
+    .navbar-topics {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
     .navbar-topics ul {
         display: flex;
         flex-direction: column;
@@ -81,6 +86,25 @@
         @media screen and (min-width: 991px) {
             gap: 30px;
             flex-direction: row;
+        }
+    }
+
+    .burger__restart {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        color: var(--theme-dark);
+        font-size: 18px;
+        font-weight: 700;
+        width: 100%;
+        padding: 10px 0;
+        border: 0;
+        border-radius: 5px;
+        background-color: var(--main-color);
+
+        @media screen and (min-width: 991px) {
+            visibility: hidden;
+            position: absolute;
         }
     }
 }

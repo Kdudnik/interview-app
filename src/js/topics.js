@@ -1,9 +1,13 @@
 import { switchSVG } from "./cards";
 import { topicSVGs } from "./utils/topicsSVG";
 import { generateCardContent } from "./questions";
-import { questions } from "./csv/csvUpload"
+import { dropArea, questions } from "./csv/csvUpload"
+import { pagins } from "./pagination";
+import { hide } from "./pagination";
+import { show } from "./pagination";
 
 const topicsList = document.querySelector('.navbar-topics ul')
+const restartBtn = document.querySelector('.burger__restart')
 const cards = document.querySelector(".cards")
 const greet = document.querySelector(".greet")
 
@@ -25,9 +29,11 @@ function generateTopics(topics) {
 
 topicsList.addEventListener('click', (event) => {
     if (!event.target.dataset.topic) return
+    pagins.style.display = "flex"
+    restartBtn.style.display = "flex"
     topicsList.querySelectorAll('.navbar__topic a').forEach(el => el.classList.remove('topic--active'))
     event.target.classList.add('topic--active')
-    const regenerate = () => {
+    const switchCard = () => {
         switchSVG(event)
         const topicQsIndex = questions.findIndex(qsObj => {
             if (Object.keys(qsObj)[0].toLowerCase() === event.target.dataset.topic) {
@@ -39,15 +45,20 @@ topicsList.addEventListener('click', (event) => {
     if (window.getComputedStyle(cards).getPropertyValue('display') == "none") {
         greet.style.display = "none"
         cards.style.display = "flex"
-        regenerate()
-        cards.style.animation = "card-show 1s forwards"
+        switchCard()
+        cards.style.animation = "block-show 1s forwards"
     } else {
-        cards.style.animation = "card-hide 1s forwards"
+        cards.style.animation = "block-hide 1s forwards"
         cards.addEventListener('animationend', () => {
-            regenerate()
-            cards.style.animation = "card-show 1s forwards"
+            switchCard()
+            cards.style.animation = "block-show 1s forwards"
         })
     }
 })
 
-export { generateTopics }
+restartBtn.addEventListener('click', () => {
+    show(dropArea)
+    hide(cards)
+})
+
+export { generateTopics, topicsList, greet }

@@ -52,10 +52,13 @@ The Interview App is a web application designed to streamline the interview proc
 | Style back side of cards              | ✅ Completed   | 2023-04-18                        |
 | Improve card regeneration             | ✅ Completed   | 2023-04-18                        |
 | Add topic--active state               | ✅ Completed   | 2023-04-18                        |
-| Add events for correct/incorrect btns | 🚧 Not Started | TBD                               |
-| Save state                            | 🚧 Not Started | TBD                               |
-| Add randomizer for qs generation      | 🚧 Not Started | TBD                               |
+| Regenerate cards after an answer      | ✅ Completed   | 2023-04-19                        |
+| Add ability for changing uploaded CSV | ⏳ In Progress | TBD                               |
+| Save score                            | 🚧 Not Started | TBD                               |
+| Save answered questions               | 🚧 Not Started | TBD                               |
 | Give each question a price            | 🚧 Not Started | TBD                               |
+| BE for uploading a CSV file           | 🚧 Not Started | TBD                               |
+| Add randomizer for qs generation      | 🚧 Not Started | TBD                               |
 | Show results                          | 🚧 Not Started | TBD                               |
 | Add language variations               | 🚧 Not Started | TBD                               |
 | Error for non-CSV on mobile           | 🚧 Not Started | TBD                               |

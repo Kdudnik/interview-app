@@ -1,4 +1,4 @@
-@keyframes card-show {
+@keyframes block-show {
   from {
     transform: translateY(-100vh);
   }
@@ -8,7 +8,7 @@
   }
 }
 
-@keyframes card-hide {
+@keyframes block-hide {
   from {
     transform: translateY(0);
   }

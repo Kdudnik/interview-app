@@ -82,4 +82,4 @@ function dropZoneClick() {
   input.click();
 }
 
-export { questions }
+export { questions, dropArea }
