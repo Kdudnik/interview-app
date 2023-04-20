@@ -53,7 +53,7 @@ The Interview App is a web application designed to streamline the interview proc
 | Improve card regeneration             | ✅ Completed   | 2023-04-18                        |
 | Add topic--active state               | ✅ Completed   | 2023-04-18                        |
 | Regenerate cards after an answer      | ✅ Completed   | 2023-04-19                        |
-| Add ability for changing uploaded CSV | ⏳ In Progress | TBD                               |
+| Add restarting button                 | ✅ Completed   | 2023-04-20                        |
 | Save score                            | 🚧 Not Started | TBD                               |
 | Save answered questions               | 🚧 Not Started | TBD                               |
 | Give each question a price            | 🚧 Not Started | TBD                               |

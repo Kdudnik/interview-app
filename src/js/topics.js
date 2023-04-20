@@ -2,12 +2,9 @@ import { switchSVG } from "./cards";
 import { topicSVGs } from "./utils/topicsSVG";
 import { generateCardContent } from "./questions";
 import { dropArea, questions } from "./csv/csvUpload"
-import { pagins } from "./pagination";
-import { hide } from "./pagination";
-import { show } from "./pagination";
 
 const topicsList = document.querySelector('.navbar-topics ul')
-const restartBtn = document.querySelector('.burger__restart')
+const restartBtn = document.querySelector('.restart__btn')
 const cards = document.querySelector(".cards")
 const greet = document.querySelector(".greet")
 
@@ -29,8 +26,7 @@ function generateTopics(topics) {
 
 topicsList.addEventListener('click', (event) => {
     if (!event.target.dataset.topic) return
-    pagins.style.display = "flex"
-    restartBtn.style.display = "flex"
+    restartBtn.style.opacity = "1"
     topicsList.querySelectorAll('.navbar__topic a').forEach(el => el.classList.remove('topic--active'))
     event.target.classList.add('topic--active')
     const switchCard = () => {
@@ -57,8 +53,12 @@ topicsList.addEventListener('click', (event) => {
 })
 
 restartBtn.addEventListener('click', () => {
-    show(dropArea)
-    hide(cards)
+    cards.style.display = "none"
+    cards.style.animation = "block-hide 1s forwards"
+    dropArea.style.display = "flex"
+    dropArea.style.animation = "block-show 1s forwards"
+    topicsList.innerHTML = ""
+    restartBtn.style.opacity = "0"
 })
 
 export { generateTopics, topicsList, greet }
