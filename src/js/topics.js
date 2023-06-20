@@ -1,11 +1,15 @@
 import { switchSVG } from "./cards";
 import { topicSVGs } from "./utils/topicsSVG";
-import { generateCardContent } from "./questions";
-import { dropArea, questions } from "./csv/csvUpload"
+import { getQsIndexByTopic } from "./utils/getQsIndexByTopic";
+import { generateCardContent } from "./cards";
+import { dropArea } from "./csv/csvUpload"
+import { useState } from "./store/useState";
+import { switchCards } from "./cards";
+
+const { setActiveTopic, getActiveQuestion } = useState();
 
 const topicsList = document.querySelector('.navbar-topics ul')
 const restartBtn = document.querySelector('.restart__btn')
-const cards = document.querySelector(".cards")
 const greet = document.querySelector(".greet")
 
 function generateTopics(topics) {
@@ -26,39 +30,39 @@ function generateTopics(topics) {
 
 topicsList.addEventListener('click', (event) => {
     if (!event.target.dataset.topic) return
+    
+    // Styling
     restartBtn.style.opacity = "1"
     topicsList.querySelectorAll('.navbar__topic a').forEach(el => el.classList.remove('topic--active'))
     event.target.classList.add('topic--active')
-    const switchCard = () => {
-        switchSVG(event)
-        const topicQsIndex = questions.findIndex(qsObj => {
-            if (Object.keys(qsObj)[0].toLowerCase() === event.target.dataset.topic) {
-                return qsObj
-            }
-        })
-        generateCardContent(questions[topicQsIndex], cards.querySelectorAll('.card__side--back'))
-    }
-    if (window.getComputedStyle(cards).getPropertyValue('display') == "none") {
-        greet.style.display = "none"
-        cards.style.display = "flex"
-        switchCard()
-        cards.style.animation = "block-show 1s forwards"
-    } else {
-        cards.style.animation = "block-hide 1s forwards"
-        cards.addEventListener('animationend', () => {
-            switchCard()
-            cards.style.animation = "block-show 1s forwards"
-        })
-    }
+
+    // save active topic into the local state
+    setActiveTopic(event.target.dataset.topic);
+
+    greet.style.display = "none"
+    switchCards()
+
+    // if (window.getComputedStyle(cards).getPropertyValue('display') == "none") {
+    //     greet.style.display = "none"
+    //     cards.style.display = "flex"
+
+    //     switchSVG()
+    //     // generateCardContent(getActiveQuestion(), cards.querySelectorAll('.card__side--back'))
+
+    //     cards.style.animation = "block-show 1s forwards"
+    // } else {
+        
+    // }
 })
 
-restartBtn.addEventListener('click', () => {
-    cards.style.display = "none"
-    cards.style.animation = "block-hide 1s forwards"
-    dropArea.style.display = "flex"
-    dropArea.style.animation = "block-show 1s forwards"
-    topicsList.innerHTML = ""
-    restartBtn.style.opacity = "0"
-})
+// TODO: move to more 'global' place from where it can iteract with different modules
+// restartBtn.addEventListener('click', () => {
+//     cards.style.display = "none"
+//     cards.style.animation = "block-hide 1s forwards"
+//     dropArea.style.display = "flex"
+//     dropArea.style.animation = "block-show 1s forwards"
+//     topicsList.innerHTML = ""
+//     restartBtn.style.opacity = "0"
+// })
 
-export { generateTopics, topicsList, greet }
+export { generateTopics, topicsList }

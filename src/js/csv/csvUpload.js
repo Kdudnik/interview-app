@@ -2,17 +2,17 @@ import { generateTopics } from "../topics.js";
 import { csvRead } from "./csvRead.js";
 import { isCSV } from '../utils/isCSV.js'
 import { generateSummary } from "../result.js";
-import { getQuestions } from "../questions.js";
+import { sortQuestionsFromCSV } from "../utils/questions.js";
+import { useState } from "../store/useState.js";
 
 const dropArea = document.getElementById('csvUpload');
 const greet = document.querySelector('.greet')
 const dzError = dropArea.querySelector('#error')
 const dzSuccess = dropArea.querySelector('#success')
+const { setAllQuestions, getAllQuestions } = useState();
 
 const csvErrorClass = 'csv-upload--error'
 const csvAllowedClass = 'csv-upload--allowed'
-
-let questions = []
 
 dropArea.addEventListener('dragenter', (event) => {
   event.stopPropagation();
@@ -25,7 +25,6 @@ dropArea.addEventListener('dragenter', (event) => {
     dropArea.classList.add(csvErrorClass)
     dzSuccess.style.display = "none"
   }
-
 });
 
 dropArea.addEventListener('dragleave', (event) => {
@@ -53,14 +52,7 @@ dropArea.addEventListener('drop', (event) => {
     return;
   }
 
-  const csvDataPromise = csvRead(file)
-  csvDataPromise.then((result) => { 
-    generateTopics(result.meta.fields)
-    questions = getQuestions(result.data)
-    generateSummary(result.meta.fields)
-    dropArea.style.display = "none"
-    greet.style.display = "flex"
-  })
+  csvRead(file).then((result) => onCSVPromiseResoled(result))
 });
 
 dropArea.addEventListener('click', dropZoneClick)
@@ -69,17 +61,22 @@ function dropZoneClick() {
   let input = document.createElement('input');
   input.type = 'file';
   input.accept = 'text/csv';
-  input.addEventListener("change", (event) => {
+  input.addEventListener("change", () => {
     let fileList = Array.from(input.files);
-    csvRead(fileList[0]).then((result) => {
-      generateTopics(result.meta.fields)
-      questions = getQuestions(result.data)
-      generateSummary(result.meta.fields)
-      dropArea.style.display = "none"
-      greet.style.display = "flex"
-    })
+    csvRead(fileList[0]).then((result) => onCSVPromiseResoled(result))
   });
   input.click();
 }
 
-export { questions, dropArea }
+function onCSVPromiseResoled(result) {
+  generateTopics(result.meta.fields)
+      
+    const sortedQuestions = sortQuestionsFromCSV(result.data);
+    setAllQuestions(sortedQuestions)
+
+    generateSummary(result.meta.fields)
+    dropArea.style.display = "none"
+    greet.style.display = "flex"
+}
+
+export { dropArea }

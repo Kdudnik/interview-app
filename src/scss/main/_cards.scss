@@ -82,8 +82,19 @@
             text-align: center;
         }
 
-        .card__title {
-            font-size: 40px;
+        .card__title-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            .card__title {
+                font-size: 40px;
+            }
+
+            .card__score {
+                font-size: 18px;
+                font-weight: 400;
+            }
         }
 
         .card__text {

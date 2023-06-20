@@ -1,22 +1,33 @@
-@keyframes block-show {
-  from {
-    transform: translateY(-100vh);
-  }
+// TODO: maybe those should be removed later
+// @keyframes block-show {
+//   from {
+//     transform: translateY(-100vh);
+//   }
 
-  to {
-    transform: translateY(0);
-  }
-}
+//   to {
+//     transform: translateY(0);
+//   }
+// }
 
-@keyframes block-hide {
-  from {
-    transform: translateY(0);
-  }
+// @keyframes block-hide {
+//   from {
+//     transform: translateY(0);
+//   }
 
-  to {
-    transform: translateY(-100vh);
-  }
-}
+//   to {
+//     transform: translateY(-100vh);
+//   }
+// }
+
+// @keyframes startSwitchCards {
+//   from {
+//     opacity: 1;
+//   }
+
+//   to {
+//     opacity: 0;
+//   }
+// }
 
 @keyframes dz-jiggling {
   0% {
