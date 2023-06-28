@@ -4,9 +4,9 @@ import { isCSV } from '../utils/isCSV.js'
 import { generateSummary } from "../result.js";
 import { sortQuestionsFromCSV } from "../utils/questions.js";
 import { useState } from "../store/useState.js";
+import { handleClickOnTopic, topicsList } from "../topics.js";
 
 const dropArea = document.getElementById('csvUpload');
-const greet = document.querySelector('.greet')
 const dzError = dropArea.querySelector('#error')
 const dzSuccess = dropArea.querySelector('#success')
 const { setAllQuestions, getAllQuestions } = useState();
@@ -70,13 +70,14 @@ function dropZoneClick() {
 
 function onCSVPromiseResoled(result) {
   generateTopics(result.meta.fields)
-      
+
     const sortedQuestions = sortQuestionsFromCSV(result.data);
     setAllQuestions(sortedQuestions)
 
     generateSummary(result.meta.fields)
     dropArea.style.display = "none"
-    greet.style.display = "flex"
+
+    handleClickOnTopic(topicsList.querySelector('.navbar__topic a'))
 }
 
 export { dropArea }

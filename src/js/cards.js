@@ -1,60 +1,45 @@
-import { topicSVGs } from "./utils/topicsSVG.js";
-import { useState } from "./store/useState.js";
+import { topicSVGs } from "./utils/topicsSVG.js"
+import { useState } from "./store/useState.js"
 
-const { getActiveTopic } = useState();
+const { getActiveTopic } = useState()
 
 const cards = document.querySelector(".cards")
-const cardsBtns = document.querySelectorAll('.card__btn-wrapper')
-
-// Cards local state
-let isCardsHidden = getComputedStyle(cards).display !== "flex";
+const cardsBtns = document.querySelectorAll(".card__btn-wrapper")
 
 cards.addEventListener("click", (event) => {
-    event.target.closest('.card').classList.add("card--active")
-    event.currentTarget.querySelectorAll('.card').forEach((c) => {
-        if (!c.classList.contains("card--active")) {
-            c.closest('.card-wrapper').style.display = "none"
-        }
-    })
+  event.target.closest(".card").classList.add("card--active")
+  event.currentTarget.querySelectorAll(".card").forEach((c) => {
+    if (!c.classList.contains("card--active")) {
+      c.closest(".card-wrapper").style.display = "none"
+    }
+  })
 })
 
-cardsBtns.forEach(btn => {
-    btn.addEventListener('click', (event) => {
-        if (!event.target.dataset.confirm) return
+cardsBtns.forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+    if (!event.target.dataset.confirm) return
 
-        if (event.target.dataset.confirm == "true") {
-            console.log("Correct!")
-        } else {
-            console.log("Incorrect :(")
-        }
+    if (event.target.dataset.confirm == "true") {
+      console.log("Correct!")
+    } else {
+      console.log("Incorrect :(")
+    }
 
-        // switchCards( cards, getTopicQsIndex(questions, ) )
-    })
+    // switchCards( cards, getTopicQsIndex(questions, ) )
+  })
 })
 
 function switchSVG() {
-    cards.querySelectorAll(".card__side--front").forEach((cardFront) => {
-        cardFront.dataset.topic = getActiveTopic()
-        cardFront.innerHTML = topicSVGs[cardFront.dataset.topic]
-    })
+  cards.querySelectorAll(".card__side--front").forEach((cardFront) => {
+    cardFront.dataset.topic = getActiveTopic()
+    cardFront.innerHTML = topicSVGs[cardFront.dataset.topic]
+  })
 }
 
 function switchCards() {
-
-    const startSwitchingCards = [
-        { transform: "translateY(-100vh)", display: "none" },
-        { transform: "translateY(0)", display: "flex" },
-      ];
-    const cardsSwitchingOptions = {
-    duration: 2000,
-    iterations: 1,
-};
-
-    cards.animate(startSwitchingCards, cardsSwitchingOptions);
-
-
-    // 'switch-block 1s' --- { 0%: translate(0), 100%: translate(-100vh) }
-    // 
+  cards.classList.remove("cards-switch")
+  void cards.offsetWidth
+  cards.classList.add("cards-switch")
 }
 
 // function switchCards() {
@@ -64,7 +49,7 @@ function switchCards() {
 //      */
 //     if(isCardsHidden) {
 //         console.log( 'cards hidden initial' );
-        
+
 //         cards.style.display = "flex"
 //         cards.style.animation = "block-show 1s forwards"
 //         switchSVG()
@@ -78,12 +63,12 @@ function switchCards() {
 //      */
 //     const showHideCards = () => {
 //         cards.style.display = isCardsHidden ? "flex" : "none"
-        
+
 //         isCardsHidden = getComputedStyle(cards).display !== "flex";
-    
+
 //         if(isCardsHidden) {
 //             console.log( "cards hidden ON ANIMATION END" );
-    
+
 //             //regenerate
 //             switchSVG()
 //             cards.style.display = "flex"
@@ -113,17 +98,26 @@ function switchCards() {
 // }
 
 function generateCardContent(topicObj, cardBackEls) {
-    const topicName = Object.keys(topicObj)[0]
-    const topicQs = Object.values(topicObj).flat().filter(q => q)
+  const topicName = Object.keys(topicObj)[0]
+  const topicQs = Object.values(topicObj)
+    .flat()
+    .filter((q) => q)
 
-    cardBackEls.forEach(cardBack => {
-        cardBack.querySelector('.card__title').innerHTML = topicName
-        const random = Math.floor(Math.random() * topicQs.length)
-        cardBack.querySelector('.card__text').innerHTML = topicQs[random].replace(`${topicQs[random].split(" ")[0]} - `, '')
-        setActiveQuestion(topicQs[random].replace(`${topicQs[random].split(" ")[0]} - `, ''))
-        getActiveQuestion()
-        cardBack.querySelector('.card__score').innerHTML = `Вартість Питання: ${topicQs[random].split(" ")[0]}`
-    });
+  cardBackEls.forEach((cardBack) => {
+    cardBack.querySelector(".card__title").innerHTML = topicName
+    const random = Math.floor(Math.random() * topicQs.length)
+    cardBack.querySelector(".card__text").innerHTML = topicQs[random].replace(
+      `${topicQs[random].split(" ")[0]} - `,
+      ""
+    )
+    setActiveQuestion(
+      topicQs[random].replace(`${topicQs[random].split(" ")[0]} - `, "")
+    )
+    getActiveQuestion()
+    cardBack.querySelector(".card__score").innerHTML = `Вартість Питання: ${
+      topicQs[random].split(" ")[0]
+    }`
+  })
 }
 
 export { switchSVG, switchCards, generateCardContent }

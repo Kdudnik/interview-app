@@ -1,33 +1,50 @@
-// TODO: maybe those should be removed later
-// @keyframes block-show {
-//   from {
-//     transform: translateY(-100vh);
-//   }
+@keyframes cards-show {
+  from {
+    transform: translateY(-100vh);
+    visibility: hidden;
+    opacity: 0;
+  }
 
-//   to {
-//     transform: translateY(0);
-//   }
-// }
+  to {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+}
 
-// @keyframes block-hide {
-//   from {
-//     transform: translateY(0);
-//   }
+@keyframes cards-hide {
+  from {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
 
-//   to {
-//     transform: translateY(-100vh);
-//   }
-// }
+  to {
+    transform: translateY(-100vh);
+    visibility: hidden;
+    opacity: 0;
+  }
+}
 
-// @keyframes startSwitchCards {
-//   from {
-//     opacity: 1;
-//   }
+@keyframes cards-switch {
+  0% {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
 
-//   to {
-//     opacity: 0;
-//   }
-// }
+  50% {
+    transform: translateY(-100vh);
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+}
 
 @keyframes dz-jiggling {
   0% {

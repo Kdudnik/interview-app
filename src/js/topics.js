@@ -1,16 +1,13 @@
-import { switchSVG } from "./cards";
 import { topicSVGs } from "./utils/topicsSVG";
 import { getQsIndexByTopic } from "./utils/getQsIndexByTopic";
 import { generateCardContent } from "./cards";
-import { dropArea } from "./csv/csvUpload"
 import { useState } from "./store/useState";
 import { switchCards } from "./cards";
 
-const { setActiveTopic, getActiveQuestion } = useState();
+const { setActiveTopic } = useState();
 
 const topicsList = document.querySelector('.navbar-topics ul')
 const restartBtn = document.querySelector('.restart__btn')
-const greet = document.querySelector(".greet")
 
 function generateTopics(topics) {
     if (!Array.isArray(topics)) return
@@ -28,32 +25,21 @@ function generateTopics(topics) {
     });
 }
 
-topicsList.addEventListener('click', (event) => {
-    if (!event.target.dataset.topic) return
-    
+function handleClickOnTopic(topicLinkEl) {
+    if (!topicLinkEl.dataset.topic) return
+
     // Styling
-    restartBtn.style.opacity = "1"
+    // TODO: fix - this will execute each time when topic is clicked
+    // restartBtn.style.opacity = "1"
     topicsList.querySelectorAll('.navbar__topic a').forEach(el => el.classList.remove('topic--active'))
-    event.target.classList.add('topic--active')
+    topicLinkEl.classList.add('topic--active')
 
-    // save active topic into the local state
-    setActiveTopic(event.target.dataset.topic);
+    setActiveTopic(topicLinkEl.dataset.topic);
 
-    greet.style.display = "none"
     switchCards()
+}
 
-    // if (window.getComputedStyle(cards).getPropertyValue('display') == "none") {
-    //     greet.style.display = "none"
-    //     cards.style.display = "flex"
-
-    //     switchSVG()
-    //     // generateCardContent(getActiveQuestion(), cards.querySelectorAll('.card__side--back'))
-
-    //     cards.style.animation = "block-show 1s forwards"
-    // } else {
-        
-    // }
-})
+topicsList.addEventListener('click', (event) => handleClickOnTopic(event.target))
 
 // TODO: move to more 'global' place from where it can iteract with different modules
 // restartBtn.addEventListener('click', () => {
@@ -65,4 +51,4 @@ topicsList.addEventListener('click', (event) => {
 //     restartBtn.style.opacity = "0"
 // })
 
-export { generateTopics, topicsList }
+export { generateTopics, handleClickOnTopic, topicsList }

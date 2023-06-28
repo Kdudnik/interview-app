@@ -1,5 +1,14 @@
+.cards-switch {
+    animation: cards-switch 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
 .cards {
-    display: none;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    transform: translateY(-100vh);
+    visibility: hidden;
+    opacity: 0;
     flex-wrap: wrap;
     justify-content: center;
     gap: 60px;
