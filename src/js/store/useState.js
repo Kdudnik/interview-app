@@ -65,11 +65,11 @@ function useState() {
     return {
         setAllQuestions,
         getAllQuestions,
+        setActiveQuestion,
         getActiveQuestion,
         setActiveTopic,
         getActiveTopic
     }
 }
-
 
 export { useState }

@@ -1,8 +1,7 @@
 import { topicSVGs } from "./utils/topicsSVG";
 import { getQsIndexByTopic } from "./utils/getQsIndexByTopic";
-import { generateCardContent } from "./cards";
 import { useState } from "./store/useState";
-import { switchCards } from "./cards";
+import { switchCards, switchSVG } from "./cards";
 
 const { setActiveTopic } = useState();
 
@@ -37,6 +36,7 @@ function handleClickOnTopic(topicLinkEl) {
     setActiveTopic(topicLinkEl.dataset.topic);
 
     switchCards()
+    switchSVG()
 }
 
 topicsList.addEventListener('click', (event) => handleClickOnTopic(event.target))

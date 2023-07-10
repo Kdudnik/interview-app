@@ -70,9 +70,11 @@ function dropZoneClick() {
 
 function onCSVPromiseResoled(result) {
   generateTopics(result.meta.fields)
+  console.log(result.meta.fields)
 
     const sortedQuestions = sortQuestionsFromCSV(result.data);
     setAllQuestions(sortedQuestions)
+    console.log(sortedQuestions)
 
     generateSummary(result.meta.fields)
     dropArea.style.display = "none"

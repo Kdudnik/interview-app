@@ -1,13 +1,17 @@
 import { topicSVGs } from "./utils/topicsSVG.js"
 import { useState } from "./store/useState.js"
 
-const { getActiveTopic } = useState()
+const { getActiveTopic, setActiveQuestion, getActiveQuestion, getAllQuestions } = useState()
 
 const cards = document.querySelector(".cards")
 const cardsBtns = document.querySelectorAll(".card__btn-wrapper")
 
 cards.addEventListener("click", (event) => {
-  event.target.closest(".card").classList.add("card--active")
+  const targetedCard = event.target.closest(".card")
+  if(!targetedCard || targetedCard.classList.contains("card--active")) return
+  
+  targetedCard.classList.add("card--active")
+  generateCardContent(targetedCard)
   event.currentTarget.querySelectorAll(".card").forEach((c) => {
     if (!c.classList.contains("card--active")) {
       c.closest(".card-wrapper").style.display = "none"
@@ -17,15 +21,17 @@ cards.addEventListener("click", (event) => {
 
 cardsBtns.forEach((btn) => {
   btn.addEventListener("click", (event) => {
+    event.stopPropagation()
     if (!event.target.dataset.confirm) return
 
     if (event.target.dataset.confirm == "true") {
       console.log("Correct!")
+      switchCards()
     } else {
       console.log("Incorrect :(")
     }
 
-    // switchCards( cards, getTopicQsIndex(questions, ) )
+    switchCards()
   })
 })
 
@@ -37,9 +43,18 @@ function switchSVG() {
 }
 
 function switchCards() {
-  cards.classList.remove("cards-switch")
-  void cards.offsetWidth
-  cards.classList.add("cards-switch")
+  setTimeout(() => {
+    cards.classList.remove("cards-switch")
+    void cards.offsetWidth
+    cards.classList.add("cards-switch")
+  }, 500)
+  
+  cards.querySelectorAll('.card-wrapper').forEach(child => {
+      if (child.style.display === "none") child.style.display = "block"
+  })
+  cards.querySelectorAll('.card-wrapper > .card').forEach(card => {
+      card.classList.remove('card--active')
+  })
 }
 
 // function switchCards() {
@@ -83,12 +98,6 @@ function switchCards() {
 //     cards.addEventListener('animationend', showHideCards)
 
 //     //HW: read abot animationend and find other ways to follow the end of the animation
-//         // cards.querySelectorAll('.card-wrapper').forEach(child => {
-//         //     if (child.style.display === "none") child.style.display = "block"
-//         // })
-//         // cards.querySelectorAll('.card-wrapper > .card').forEach(card => {
-//         //     card.classList.remove('card--active')
-//         // })
 
 //         // getAllQuestions
 //         // generateCardContent(getAllQuestions()[topicQsIndex], cards.querySelectorAll('.card__side--back'))
@@ -97,27 +106,26 @@ function switchCards() {
 //         // cards.style.animation = "block-show 1s forwards"
 // }
 
-function generateCardContent(topicObj, cardBackEls) {
-  const topicName = Object.keys(topicObj)[0]
-  const topicQs = Object.values(topicObj)
-    .flat()
-    .filter((q) => q)
+function generateCardContent(activeCard) {
+  let topicQs;
+  getAllQuestions().forEach((element) => {
+    const currentElementKey = Object.keys(element)[0].toLowerCase()
+    if(getActiveTopic() === currentElementKey) {
+      topicQs = Object.values(element)[0]
+    }
+  });
 
-  cardBackEls.forEach((cardBack) => {
-    cardBack.querySelector(".card__title").innerHTML = topicName
+    activeCard.querySelector(".card__title").innerHTML = getActiveTopic().toUpperCase()
     const random = Math.floor(Math.random() * topicQs.length)
-    cardBack.querySelector(".card__text").innerHTML = topicQs[random].replace(
+    activeCard.querySelector(".card__text").innerHTML = topicQs[random].replace(
       `${topicQs[random].split(" ")[0]} - `,
       ""
     )
-    setActiveQuestion(
-      topicQs[random].replace(`${topicQs[random].split(" ")[0]} - `, "")
-    )
-    getActiveQuestion()
-    cardBack.querySelector(".card__score").innerHTML = `Вартість Питання: ${
+    setActiveQuestion(topicQs[random].replace(`${topicQs[random].split(" ")[0]} - `, ""))
+    // getActiveQuestion()
+    activeCard.querySelector(".card__score").innerHTML = `Вартість Питання: ${
       topicQs[random].split(" ")[0]
     }`
-  })
 }
 
-export { switchSVG, switchCards, generateCardContent }
+export { switchSVG, switchCards }
