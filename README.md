@@ -53,17 +53,15 @@ The Interview App is a web application designed to streamline the interview proc
 | Improve card regeneration             | ✅ Completed   | 2023-04-18                        |
 | Add topic--active state               | ✅ Completed   | 2023-04-18                        |
 | Regenerate cards after an answer      | ✅ Completed   | 2023-04-19                        |
-| Add restarting button                 | ✅ Completed   | 2023-04-20                        |
 | Give each question a price            | ✅ Completed   | 2023-04-30                        |
-| Save score                            | 🚧 Not Started | TBD                               |
-| Save answered questions               | 🚧 Not Started | TBD                               |
+| Save score                            | ✅ Completed   | 2023-07-16                        |
+| Save answered questions               | ✅ Completed   | 2023-07-16                        |
+| Show results                          | ✅ Completed   | 2023-07-17                        |
+| Add local storage                     | ✅ Completed   | 2023-07-17                        |
+| Add restarting button                 | 🚧 Not Started | TBD                               |
 | BE for uploading a CSV file           | 🚧 Not Started | TBD                               |
 | Add randomizer for qs generation      | 🚧 Not Started | TBD                               |
-| Show results                          | 🚧 Not Started | TBD                               |
 | Add language variations               | 🚧 Not Started | TBD                               |
 | Error for non-CSV on mobile           | 🚧 Not Started | TBD                               |
 | Improve topics mobile (optional)      | 🚧 Not Started | TBD                               |
 | Online multiplayer                    | 🚧 Not Started | TBD                               |
-
-HW: save active topic in State
-HW: rewrite switchSvg()

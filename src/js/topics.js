@@ -27,10 +27,6 @@ function generateTopics(topics) {
 
 function handleClickOnTopic(topicLinkEl) {
     if (!topicLinkEl.dataset.topic) return
-
-    // Styling
-    // TODO: fix - this will execute each time when topic is clicked
-    // restartBtn.style.opacity = "1"
     topicsList.querySelectorAll('.navbar__topic a').forEach(el => el.classList.remove('topic--active'))
     topicLinkEl.classList.add('topic--active')
 
@@ -46,15 +42,5 @@ calculateBtn.addEventListener('click', () => {
     cards.style.display = "none"
     generateResult()
 })
-
-// TODO: move to more 'global' place from where it can iteract with different modules
-// restartBtn.addEventListener('click', () => {
-//     cards.style.display = "none"
-//     cards.style.animation = "block-hide 1s forwards"
-//     dropArea.style.display = "flex"
-//     dropArea.style.animation = "block-show 1s forwards"
-//     topicsList.innerHTML = ""
-//     restartBtn.style.opacity = "0"
-// })
 
 export { generateTopics, handleClickOnTopic, topicsList }

@@ -1,6 +1,3 @@
-import { getQsIndexByTopic } from "../utils/getQsIndexByTopic";
-
-let listeners = []
 const localState = {
     questions: {
         allQuestions: [],
@@ -13,10 +10,25 @@ const localState = {
     }
 }
 
+// TODO: make better, with loops
+if(window.localStorage.length) {
+    if(window.localStorage.getItem('activeTopic')) {
+        localState.activeTopic = window.localStorage.getItem('activeTopic');
+    }
+    if(localStorage.getItem('allQuestions')) {
+        localState.questions.allQuestions = JSON.parse(localStorage.getItem('allQuestions'));
+    }
+    if(localStorage.getItem('score')) {
+        localState.score = JSON.parse(localStorage.getItem('score'))
+    }
+    console.dir(localState)
+}
+
 function useState() {
     //Active topic
     const setActiveTopic = (newActiveTopic) => {
         localState.activeTopic = newActiveTopic;
+        window.localStorage.setItem('activeTopic', localState.activeTopic);
     };
 
     const getActiveTopic = () => {
@@ -36,6 +48,7 @@ function useState() {
                 [key]: value //returns an obj for newAllQuestions (40)
             }
         })
+        window.localStorage.setItem('allQuestions', JSON.stringify(localState.questions.allQuestions))
     }
 
     const getAllQuestions = () => {
@@ -44,27 +57,27 @@ function useState() {
 
     const updateAllQuestions = () => {
         let topicQs = null
-        getAllQuestions().forEach((element) => {
-            if (getActiveTopic() === Object.keys(element)[0].toLowerCase()) {
+        localState.questions.allQuestions.forEach((element) => {
+            if (localState.activeTopic === Object.keys(element)[0].toLowerCase()) {
                 topicQs = Object.values(element)[0]
             }
         });
         let newAllQuestions = []
         const answeredQuestion = (topicQs.splice(
-            topicQs.findIndex((el) => el == getActiveQuestion()),
+            topicQs.findIndex((el) => el == localState.questions.activeQuestion),
             1))[0]
         topicQs.forEach((element) => {
             if(element != answeredQuestion) {
                 newAllQuestions.push(element)
             }
         })
-        getAllQuestions().forEach((element) => {
-            if (getActiveTopic() === Object.keys(element)[0].toLowerCase()) {
+        localState.questions.allQuestions.forEach((element) => {
+            if (localState.activeTopic === Object.keys(element)[0].toLowerCase()) {
                 Object.values(element)[0] = newAllQuestions
             }
         });
 
-        console.log(getAllQuestions())
+        window.localStorage.setItem('allQuestions', JSON.stringify(localState.questions.allQuestions))
     }
 
     //Active qs
@@ -83,6 +96,7 @@ function useState() {
         if (answered) {
             localState.score.user = localState.score.user + price
         }
+        window.localStorage.setItem('score', JSON.stringify(localState.score))
     }
 
     const getScore = () => {

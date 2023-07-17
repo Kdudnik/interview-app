@@ -10,10 +10,21 @@ const dropArea = document.getElementById('csvUpload');
 const dzError = dropArea.querySelector('#error')
 const dzSuccess = dropArea.querySelector('#success')
 const navbarBtns = document.querySelector('.navbar-btns-wrapper')
-const { setAllQuestions, getAllQuestions } = useState();
+const { setAllQuestions, getAllQuestions, getActiveTopic } = useState();
 
 const csvErrorClass = 'csv-upload--error'
 const csvAllowedClass = 'csv-upload--allowed'
+
+// dataset.adminId == Number(dataset.adminId) == +dataset.adminId
+// !!getAllQuestions() == !true == false
+// !!!getAllQuestions() == !!true == !false == true
+if (getAllQuestions().length) {
+  dropArea.style.display = "none"
+  generateTopics(getAllQuestions().map(item => Object.keys(item)[0]))
+  let activeTopicEl = Array.from(document.querySelectorAll('.navbar__topic a')).find(el => {if (el.dataset.topic === getActiveTopic()) return el})
+  handleClickOnTopic(activeTopicEl)
+  navbarBtns.style.display = "flex"
+}
 
 dropArea.addEventListener('dragenter', (event) => {
   event.stopPropagation();
@@ -72,16 +83,17 @@ function dropZoneClick() {
 function onCSVPromiseResoled(result) {
   generateTopics(result.meta.fields)
 
-    const sortedQuestions = sortQuestionsFromCSV(result.data);
-    setAllQuestions(sortedQuestions)
-    console.log(sortedQuestions)
+  const sortedQuestions = sortQuestionsFromCSV(result.data);
+  setAllQuestions(sortedQuestions)
 
-    generateSummary(result.meta.fields)
-    dropArea.style.display = "none"
+  generateSummary(result.meta.fields)
+  dropArea.style.display = "none"
 
-    navbarBtns.style.display = "flex"
+  navbarBtns.style.display = "flex"
 
-    handleClickOnTopic(topicsList.querySelector('.navbar__topic a'))
+  handleClickOnTopic(topicsList.querySelector('.navbar__topic a'))
 }
+
+
 
 export { dropArea }

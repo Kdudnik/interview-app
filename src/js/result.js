@@ -6,7 +6,7 @@ const { getScore } = useState()
 // let inputTest = document.querySelector('#inputTest')
 // let submitTest = document.querySelector('#submitTest')
 const result = document.querySelector('.result')
-const summary = result.querySelector('.summary')
+// const summary = result.querySelector('.summary')
 const resultScore = result.querySelector('.result .card')
 const progressBar = resultScore.querySelector('progress')
 
@@ -37,7 +37,7 @@ function generateSummary(topics) {
                 <span>${topicSVGs[field.toLowerCase()]} ${field}</span>
                 <span>50<span class="summary__score--static">/100</span></span>
             </div>`
-        summary.insertAdjacentHTML("beforeend", summaryEl)
+        // summary.insertAdjacentHTML("beforeend", summaryEl)
     })
 }
 
