@@ -79,4 +79,4 @@ function generateCardContent(activeCard) {
     }`
 }
 
-export { switchSVG, switchCards }
+export { switchSVG, switchCards, cards }

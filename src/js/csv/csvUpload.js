@@ -9,6 +9,7 @@ import { handleClickOnTopic, topicsList } from "../topics.js";
 const dropArea = document.getElementById('csvUpload');
 const dzError = dropArea.querySelector('#error')
 const dzSuccess = dropArea.querySelector('#success')
+const navbarBtns = document.querySelector('.navbar-btns-wrapper')
 const { setAllQuestions, getAllQuestions } = useState();
 
 const csvErrorClass = 'csv-upload--error'
@@ -77,6 +78,8 @@ function onCSVPromiseResoled(result) {
 
     generateSummary(result.meta.fields)
     dropArea.style.display = "none"
+
+    navbarBtns.style.display = "flex"
 
     handleClickOnTopic(topicsList.querySelector('.navbar__topic a'))
 }

@@ -1,31 +1,32 @@
 import { topicSVGs } from "./utils/topicsSVG"
+import { useState } from "./store/useState.js"
+
+const { getScore } = useState()
 
 // let inputTest = document.querySelector('#inputTest')
 // let submitTest = document.querySelector('#submitTest')
-const resultTitle = document.querySelector('.score h5')
-const summary = document.querySelector('.summary')
-const score = document.querySelector('.result .card')
-const progressBar = score.querySelector('progress')
-const showSummary = document.querySelector('.show__summary')
-const showScore = document.querySelector('.show__score')
+const result = document.querySelector('.result')
+const summary = result.querySelector('.summary')
+const resultScore = result.querySelector('.result .card')
+const progressBar = resultScore.querySelector('progress')
 
-// submitTest.addEventListener('click', () => {
-//     progressBar.value = inputTest.value
-//     resultTitle.innerHTML = inputTest.value
+const generateResult = () => {
+    result.style.display = "flex"
+    const userResult = getScore().user
+    const allResult = getScore().all
+    progressBar.value = userResult
+    progressBar.max = allResult
+    result.querySelector('.score h5').innerHTML = `${userResult}`
+    result.querySelector('.score p').innerHTML = `of ${allResult}`
 
-//     if(inputTest.value >= 0 && inputTest.value <= 33) {
-//         progressBar.dataset.scoreResult = "bad"
-//     } else if(inputTest.value >= 34 && inputTest.value <= 66) {
-//         progressBar.dataset.scoreResult = "average"
-//     } else if(inputTest.value >= 67 && inputTest.value <= 100) {
-//         progressBar.dataset.scoreResult = "good"
-//     }
-
-//     if(resultTitle.innerHTML > 100) {
-//         resultTitle.innerHTML = 100
-//         console.error("Result is more than 100")
-//     }
-// })
+    if((userResult*100)/allResult <= 33) {
+        progressBar.dataset.scoreResult = "bad"
+    } else if((userResult*100)/allResult <= 66) {
+        progressBar.dataset.scoreResult = "average"
+    } else { 
+        progressBar.dataset.scoreResult = "good"
+    }
+}
 
 function generateSummary(topics) {
     if(!Array.isArray(topics)) return
@@ -40,18 +41,4 @@ function generateSummary(topics) {
     })
 }
 
-showSummary.addEventListener('click', () => {
-    summary.style.display = "flex"
-    summary.style.animation = "resultShow .5s"
-    score.style.animation = "resultHide .5s"
-    score.style.display = "none"
-})
-
-showScore.addEventListener('click', () => {
-    summary.style.animation = "resultHide .5s"
-    summary.style.display = "none"
-    score.style.display = "flex"
-    score.style.animation = "resultShow .5s"
-})
-
-export { generateSummary }
+export { generateSummary, generateResult }

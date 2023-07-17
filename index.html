@@ -22,7 +22,10 @@
                         <ul>
                             <!-- Here will be generated the topics from a CSV file -->
                         </ul>
-                        <button class="restart__btn">Restart</button>
+                        <div class="navbar-btns-wrapper">
+                            <button class="btn calculate">Calculate</button>
+                            <button class="btn restart">Restart</button>
+                        </div>
                     </div>
                 </div>
                 <button type="button" id="switchColorScheme" class="scheme-switcher">
@@ -42,7 +45,7 @@
                 <div class="card-wrapper">
                     <div class="card">
                         <div class="card__side card__side--back">
-                            <div>
+                            <div class="card__title-wrapper">
                                 <h4 class="card__title"></h4>
                                 <h5 class="card__score"></h5>
                             </div>
@@ -50,7 +53,8 @@
                             <div class="card__btn-wrapper">
                                 <button class="card__btn" data-confirm="true">Correct</button>
                                 <button class="card__btn" data-confirm="false">Incorrect</button>
-                            </div>                        </div>
+                            </div>
+                        </div>
                         <div class="card__side card__side--front"></div>
                     </div>
                 </div>
@@ -73,7 +77,7 @@
                 <div class="card-wrapper">
                     <div class="card">
                         <div class="card__side card__side--back">
-                            <div>
+                            <div class="card__title-wrapper">
                                 <h4 class="card__title"></h4>
                                 <h5 class="card__score"></h5>
                             </div>
@@ -81,13 +85,12 @@
                             <div class="card__btn-wrapper">
                                 <button class="card__btn" data-confirm="true">Correct</button>
                                 <button class="card__btn" data-confirm="false">Incorrect</button>
-                            </div>                        </div>
+                            </div>
+                        </div>
                         <div class="card__side card__side--front"></div>
                     </div>
                 </div>
             </div>
-            <!-- <input type="text" id="inputTest">
-            <input type="submit" id="submitTest"> -->
             <div class="result" style="display: none;">
                 <div class="card">
                     <h4>Your Result</h4>
@@ -95,12 +98,7 @@
                         <h5>76</h5>
                         <p>of 100</p>
                     </div>
-                    <progress max="100" value="76" data-score-result="bad"></progress>
-                    <a href="#" class="switch__state show__summary">More</a>
-                </div>
-                <div class="summary">
-                    <!-- Here summary will be generated -->
-                    <a href="#" class="switch__state show__score">Back</a>
+                    <progress max="" value="" data-score-result=""></progress>
                 </div>
             </div>
         </div>

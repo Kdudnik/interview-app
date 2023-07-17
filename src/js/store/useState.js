@@ -86,7 +86,7 @@ function useState() {
     }
 
     const getScore = () => {
-        return `${localState.score.user}/${localState.score.all}`
+        return localState.score
     }
 
     return {

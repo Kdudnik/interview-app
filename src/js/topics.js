@@ -1,12 +1,13 @@
 import { topicSVGs } from "./utils/topicsSVG";
-import { getQsIndexByTopic } from "./utils/getQsIndexByTopic";
 import { useState } from "./store/useState";
 import { switchCards, switchSVG } from "./cards";
+import { generateResult } from "./result";
+import { cards } from "./cards";
 
 const { setActiveTopic } = useState();
 
 const topicsList = document.querySelector('.navbar-topics ul')
-const restartBtn = document.querySelector('.restart__btn')
+const calculateBtn = document.querySelector('.btn.calculate')
 
 function generateTopics(topics) {
     if (!Array.isArray(topics)) return
@@ -40,6 +41,11 @@ function handleClickOnTopic(topicLinkEl) {
 }
 
 topicsList.addEventListener('click', (event) => handleClickOnTopic(event.target))
+
+calculateBtn.addEventListener('click', () => {
+    cards.style.display = "none"
+    generateResult()
+})
 
 // TODO: move to more 'global' place from where it can iteract with different modules
 // restartBtn.addEventListener('click', () => {
