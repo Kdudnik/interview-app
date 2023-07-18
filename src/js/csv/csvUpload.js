@@ -1,15 +1,14 @@
-import { generateTopics } from "../topics.js";
 import { csvRead } from "./csvRead.js";
 import { isCSV } from '../utils/isCSV.js'
 import { generateSummary } from "../result.js";
 import { sortQuestionsFromCSV } from "../utils/questions.js";
 import { useState } from "../store/useState.js";
-import { handleClickOnTopic, topicsList } from "../topics.js";
+import { generateTopics, handleClickOnTopic, topicsList, navbarBtns } from "../topics.js";
+import { cards } from "../cards.js";
 
 const dropArea = document.getElementById('csvUpload');
 const dzError = dropArea.querySelector('#error')
 const dzSuccess = dropArea.querySelector('#success')
-const navbarBtns = document.querySelector('.navbar-btns-wrapper')
 const { setAllQuestions, getAllQuestions, getActiveTopic } = useState();
 
 const csvErrorClass = 'csv-upload--error'
@@ -88,6 +87,7 @@ function onCSVPromiseResoled(result) {
 
   generateSummary(result.meta.fields)
   dropArea.style.display = "none"
+  cards.style.display = "flex"
 
   navbarBtns.style.display = "flex"
 

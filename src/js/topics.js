@@ -3,11 +3,14 @@ import { useState } from "./store/useState";
 import { switchCards, switchSVG } from "./cards";
 import { generateResult } from "./result";
 import { cards } from "./cards";
+import { dropArea } from "./csv/csvUpload";
 
-const { setActiveTopic } = useState();
+const { setActiveTopic, clearLocalState } = useState();
 
 const topicsList = document.querySelector('.navbar-topics ul')
 const calculateBtn = document.querySelector('.btn.calculate')
+const restartBtn = document.querySelector('.btn.restart')
+const navbarBtns = document.querySelector('.navbar-btns-wrapper')
 
 function generateTopics(topics) {
     if (!Array.isArray(topics)) return
@@ -41,6 +44,16 @@ topicsList.addEventListener('click', (event) => handleClickOnTopic(event.target)
 calculateBtn.addEventListener('click', () => {
     cards.style.display = "none"
     generateResult()
+    window.localStorage.clear()
 })
 
-export { generateTopics, handleClickOnTopic, topicsList }
+restartBtn.addEventListener('click', () => {
+    cards.style.display = "none"
+    dropArea.style.display = "flex"
+    navbarBtns.style.display = "none"
+    topicsList.innerHTML = ""
+    clearLocalState()
+    window.localStorage.clear()
+})
+
+export { generateTopics, handleClickOnTopic, topicsList, navbarBtns }

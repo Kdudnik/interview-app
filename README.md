@@ -58,7 +58,7 @@ The Interview App is a web application designed to streamline the interview proc
 | Save answered questions               | ✅ Completed   | 2023-07-16                        |
 | Show results                          | ✅ Completed   | 2023-07-17                        |
 | Add local storage                     | ✅ Completed   | 2023-07-17                        |
-| Add restarting button                 | 🚧 Not Started | TBD                               |
+| Add restarting button                 | ✅ Completed   | 2023-07-18                        |
 | BE for uploading a CSV file           | 🚧 Not Started | TBD                               |
 | Add randomizer for qs generation      | 🚧 Not Started | TBD                               |
 | Add language variations               | 🚧 Not Started | TBD                               |

@@ -103,6 +103,14 @@ function useState() {
         return localState.score
     }
 
+    const clearLocalState = () => {
+        localState.questions.allQuestions = []
+        localState.questions.activeQuestion = []
+        localState.activeTopic = ''
+        localState.score.all = 0
+        localState.score.user = 0
+    }
+
     return {
         setAllQuestions,
         getAllQuestions,
@@ -112,7 +120,8 @@ function useState() {
         setActiveTopic,
         getActiveTopic,
         updateScore,
-        getScore
+        getScore,
+        clearLocalState
     }
 }
 
